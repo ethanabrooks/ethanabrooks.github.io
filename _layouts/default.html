@@ -1,29 +1,26 @@
 <html>
-		<head>
-			<title>{{ page.title }}</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" 
-      href="/css/main.css">
-		</head>
-		<body>
-			<nav>
-					<ul>
-							<li><a href="/">Home</a></li>
-							<li><a href="/about">About</a></li>
-							<li><a href="/cv">CV</a></li>
-							<li><a href="/blog">Blog</a></li>
-					</ul>
-			</nav>
-			<div class="container">
-			
-			{{ content }}
-			
-			</div><!-- /.container -->
-			<footer>
-					<ul>
-							<li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
-							<li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+<head>
+    <title>{{ page.title }}</title>
+   <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+   <link rel="stylesheet" type="text/css" href="/css/skeleton.css">
+   <link rel="stylesheet" type="text/css" href="/css/custom.css">
+</head>
+    <body>
+
+    <nav class="navbar">
+      <div class="container">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="/index.html">my hidden state</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="https://github.com/lobachevzky">my outputs</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="mailto:ethanabrooks@gmail.com">backpropogate to me</a></li>
+        </ul>
+      </div>
+    </nav>
+
+        <div class="container">
+
+            {{ content }}
+
+        </div>
+    </body>
+</html>

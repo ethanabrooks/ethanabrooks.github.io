@@ -1,11 +1,21 @@
 ---
 layout: default
-title: Hank Quinlan, Horrible Cop
+title: Ethan's Blog
 ---
 <div class="blurb">
-    <h1>Hi there, I'm Hank Quinlan!</h1>
-      <p>I'm best known as the horrible cop from <em>A Touch of Evil</em> Don't
-      trust me. <a href="/about">Read more about my life...</a></p>
-      <a class="pure-button" href="#">A Pure Button</a>
-      <button class="pure-button">A Pure Button</button>
-</div><!-- /.blurb -->
+    <h2>Blog for Machines Who Can't Learn Good</h2>
+    <h3>and Want To Learn To Do Other Stuff Good Too</h3>
+
+	<ul class="posts">
+
+	  {% for post in site.posts %}
+	    <li>
+            <a href="{{ post.url }}" style="text-decoration:none">
+                {{ post.title }}
+            </a>
+
+        </li>
+	  {% endfor %}
+	</ul>
+
+</div>
