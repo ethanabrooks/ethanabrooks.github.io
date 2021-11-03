@@ -1,0 +1,44 @@
+{
+  "name": "runs",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "clean": "bsb -clean-world",
+    "format": "prettier -w **/*.css **/*.html **/*.json **/*.scss src/**/*.js *.js",
+    "dev": "concurrently 'node server.js dev' 'yarn dev:build' 'yarn dev:bundle' 'yarn dev:css'",
+    "dev:build": "bsb -make-world -w -ws _",
+    "dev:bundle": "esbuild --define:process.env.NODE_ENV=\\\"production\\\"  --serve=localhost:8001 --bundle src/Index.bs.js --external:react --external:react-dom",
+    "dev:css": "postcss src/main.css -o dev/main.css",
+    "prod": "concurrently 'yarn prod:bundle' 'yarn prod:css' 'yarn prod:static' 'yarn prod:serve'",
+    "prod:build": "concurrently 'yarn prod:bundle' 'yarn prod:css'",
+    "prod:bundle": "bsb -make-world && esbuild --bundle src/Index.bs.js --external:react --external:react-dom --minify --outfile=dist/main.js",
+    "prod:css": "NODE_ENV=production postcss src/main.css -o dist/main.css",
+    "prod:static": "rsync -av static/ dist/"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.0.0",
+    "@heroicons/react": "^1.0.1",
+    "@reasonml-community/graphql-ppx": "^1.2.0",
+    "@ryyppy/rescript-promise": "^2.1.0",
+    "bs-platform": "^9.0.1",
+    "bs-webapi": "^0.19.1",
+    "glob": "^7.1.6",
+    "pac": "^1.0.0",
+    "prettier": "^2.2.1",
+    "react-vega": "^7.4.2",
+    "subscriptions-transport-ws": "^0.9.18",
+    "tailwindcss": "^2.1.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "concurrently": "^5.3.0",
+    "cssnano": "^4.1.10",
+    "esbuild": "^0.13.12",
+    "express": "^4.17.1",
+    "node-sass": "^6.0.0",
+    "postcss": "^8.2.12",
+    "postcss-cli": "^8.3.1",
+    "reanalyze": "^2.17.0",
+    "reason-react": "^0.9.1"
+  }
+}

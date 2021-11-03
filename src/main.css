@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.max-height-80vh {
+    max-height: 80vh
+}
+
+.button {
+    @apply inline-flex; 
+    @apply items-center;
+    @apply m-1;
+    @apply py-2;
+    @apply border;
+    @apply border-gray-300;
+    @apply shadow-sm;
+    @apply text-sm;
+    @apply font-medium;
+    @apply bg-white;
+    @apply text-gray-700;
+}
+
+.button:hover {
+    @apply bg-gray-50;
+}
+
+.button:active {
+    @apply bg-gray-100
+}
+
+.button:focus {
+    @apply outline-none;
+}
+
+.button:disabled {
+    @apply opacity-50;
+    @apply cursor-default; 
+}

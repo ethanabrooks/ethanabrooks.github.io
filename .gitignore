@@ -1,3 +1,14 @@
-_site/
-.idea/
 .DS_Store
+/.bsb.lock
+/dev/*.json
+/dev/main.css
+/dist/*.json
+/dist/main.css
+/dist/main.js
+/lib/
+/node_modules/
+/release.tzst
+/src/**/*.bs.js
+.idea
+dist/*
+.env
