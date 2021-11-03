@@ -1,13 +1,13 @@
-let navItemClassName = "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+let navItemClassName = "hover:text-gray-700 hover:border-gray-300 text-sm p-5" // mx-0 py-4 px-5 "
 @react.component
 let make = (): React.element => <>
   <div
-    className="bg-cover"
+    className=" flex w-screen h-screen bg-cover"
     style={ReactDOM.Style.make(
       ~backgroundImage=`url('https://github.com/ethanabrooks/ethanabrooks.github.io/blob/master/static/portrait.png?raw=true')`,
       (),
     )}>
-    <nav className="flex space-x-8">
+    <nav className="flex">
       <a className=navItemClassName> {"Interests"->React.string} </a>
       <a className=navItemClassName> {"Publications"->React.string} </a>
       <a className=navItemClassName> {"Projects"->React.string} </a>
