@@ -20,10 +20,7 @@
   "suffix": ".bs.js",
   "namespace": true,
   "bs-dependencies": [
-    "@ryyppy/rescript-promise",
-    "reason-react",
-    "bs-fetch",
-    "bs-webapi"
+    "@rescript/react"
   ],
   "ppx-flags": [],
   "refmt": 3

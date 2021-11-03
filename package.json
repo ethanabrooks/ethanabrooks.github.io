@@ -16,17 +16,10 @@
     "prod:static": "rsync -av static/ dist/"
   },
   "dependencies": {
-    "@headlessui/react": "^1.0.0",
-    "@heroicons/react": "^1.0.1",
-    "@reasonml-community/graphql-ppx": "^1.2.0",
-    "@ryyppy/rescript-promise": "^2.1.0",
+    "@rescript/react": "^0.10.3",
     "bs-platform": "^9.0.1",
-    "bs-webapi": "^0.19.1",
-    "glob": "^7.1.6",
-    "pac": "^1.0.0",
     "prettier": "^2.2.1",
-    "react-vega": "^7.4.2",
-    "subscriptions-transport-ws": "^0.9.18",
+    "react": "^17.0.2",
     "tailwindcss": "^2.1.2"
   },
   "devDependencies": {

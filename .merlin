@@ -1,18 +1,12 @@
 ####{BSB GENERATED: NO EDIT
 B lib/bs
 FLG -open App
-FLG -ppx '/Users/ethanbrooks/ethanabrooks.github.io/node_modules/bs-platform/darwin/bsc.exe -as-ppx -bs-jsx 3'
-S /Users/ethanbrooks/ethanabrooks.github.io/node_modules/bs-platform/lib/ocaml
-B /Users/ethanbrooks/ethanabrooks.github.io/node_modules/bs-platform/lib/ocaml
+FLG -ppx '/usr/local/lib/node_modules/bs-platform/darwin/bsc.exe -as-ppx -bs-jsx 3'
+S /usr/local/lib/node_modules/bs-platform/lib/ocaml
+B /usr/local/lib/node_modules/bs-platform/lib/ocaml
 FLG -w +a-4-9-20-40-41-42-50-61-102
-S /Users/ethanbrooks/ethanabrooks.github.io/node_modules/@ryyppy/rescript-promise/lib/ocaml
-B /Users/ethanbrooks/ethanabrooks.github.io/node_modules/@ryyppy/rescript-promise/lib/ocaml
-S /Users/ethanbrooks/ethanabrooks.github.io/node_modules/reason-react/lib/ocaml
-B /Users/ethanbrooks/ethanabrooks.github.io/node_modules/reason-react/lib/ocaml
-S /Users/ethanbrooks/ethanabrooks.github.io/node_modules/bs-fetch/lib/ocaml
-B /Users/ethanbrooks/ethanabrooks.github.io/node_modules/bs-fetch/lib/ocaml
-S /Users/ethanbrooks/ethanabrooks.github.io/node_modules/bs-webapi/lib/ocaml
-B /Users/ethanbrooks/ethanabrooks.github.io/node_modules/bs-webapi/lib/ocaml
+S /Users/ethanbrooks/ethanabrooks.github.io/node_modules/@rescript/react/lib/ocaml
+B /Users/ethanbrooks/ethanabrooks.github.io/node_modules/@rescript/react/lib/ocaml
 S src
 B lib/bs/src
 ####BSB GENERATED: NO EDIT}
