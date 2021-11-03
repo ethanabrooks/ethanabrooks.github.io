@@ -1,13 +1,35 @@
+open Belt
 let navItemClassName = "hover:text-gray-700 hover:border-gray-300 text-sm border-b2" // mx-0 py-4 px-5 "
 let activeClassName = "border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
 let inactiveClassName = "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
 
-type route = Interests | Publications | Projects | Education | WorkExperience | Reading
-let routeNames = [Interests, Publications, Projects, Education, WorkExperience, Reading]
+type route = Interests | Publications | Projects | Education | WorkExperience | Reading | Invalid
+let routes = [Interests, Publications, Projects, Education, WorkExperience, Reading]
+let stringToRoute = (string: string): route =>
+  switch string {
+  | "Interests" => Interests
+  | "Publications" => Publications
+  | "Projects" => Projects
+  | "Education" => Education
+  | "WorkExperience" => WorkExperience
+  | "Reading" => Reading
+  | _ => Invalid
+  }
+
+let routeToString = (route: route): string =>
+  switch route {
+  | Interests => "Interests"
+  | Publications => "Publications"
+  | Projects => "Projects"
+  | Education => "Education"
+  | WorkExperience => "WorkExperience"
+  | Reading => "Reading"
+  | Invalid => "Invalid"
+  }
 
 @react.component
 let make = (): React.element => {
-  // let url = RescriptReactRouter.useUrl()
+  let url = RescriptReactRouter.useUrl()
   <div
     className="w-screen h-screen bg-cover"
     style={ReactDOM.Style.make(
@@ -16,12 +38,15 @@ let make = (): React.element => {
     )}>
     <div className="flex flex-col p-5 max-w-prose h-screen">
       <nav className="flex flex-row flex-wrap justify-between">
-        <a className=inactiveClassName> {"Interests"->React.string} </a>
-        <a className=activeClassName> {"Publications"->React.string} </a>
-        <a className=navItemClassName> {"Projects"->React.string} </a>
-        <a className=navItemClassName> {"Education"->React.string} </a>
-        <a className=navItemClassName> {"Work Experience"->React.string} </a>
-        <a className=navItemClassName> {"Currently Reading"->React.string} </a>
+        {routes
+        ->Array.map(route =>
+          <a
+            href={`#${route->routeToString}`}
+            className={url.hash->stringToRoute == route ? activeClassName : inactiveClassName}>
+            {route->routeToString->React.string}
+          </a>
+        )
+        ->React.array}
       </nav>
       <div className="flex flex-row flex-grow items-center">
         <div
