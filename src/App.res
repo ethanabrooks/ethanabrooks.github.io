@@ -1,5 +1,5 @@
 open Belt
-open Json
+open External
 
 type config = {template: string, lang: string}
 
@@ -70,13 +70,7 @@ let make = (): React.element => {
           <div className="rounded-b-md ring-black ring-opacity-5 bg-white  border-gray-200">
             {switch route {
             | Home => <> </>
-            | AboutMe =>
-              aboutMe
-              ->Js.String2.split("\n\n")
-              ->Array.mapWithIndex((i, paragraph) =>
-                <p key={i->Int.toString} className={padding}> {paragraph->React.string} </p>
-              )
-              ->React.array
+            | AboutMe => aboutMe->parseHtml
             | Publications =>
               let config: config = {template: "citation-mla", lang: "en-us"}
               <ul className=divideClassName>

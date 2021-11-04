@@ -1,9 +1,10 @@
 open Belt
-@module external aboutMe: string = "./About.txt"
+@module external aboutMe: string = "./About.html"
 @module external rawProjects: Js.Json.t = "./Projects.json"
 @module external rawEducation: Js.Json.t = "./Education.json"
 @module external rawWork: Js.Json.t = "./Work.json"
 @module external rawReading: Js.Json.t = "./Reading.json"
+@module external parseHtml: string => React.element = "html-react-parser"
 
 @decco
 type project = {
