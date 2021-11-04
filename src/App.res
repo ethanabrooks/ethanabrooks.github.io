@@ -33,7 +33,7 @@ let make = (): React.element => {
       ~backgroundImage=`url('https://github.com/ethanabrooks/ethanabrooks.github.io/blob/master/static/portrait.png?raw=true')`,
       (),
     )}>
-    <div className="flex flex-col p-10 max-w-prose h-screen">
+    <div className="flex flex-col p-10 w-2/5 h-screen">
       <nav className="flex flex-row flex-wrap justify-between">
         {Route.array
         ->Array.mapWithIndex((i, r) => {
@@ -46,10 +46,16 @@ let make = (): React.element => {
         })
         ->React.array}
       </nav>
-      <div className="flex flex-row flex-grow items-center">
+      <div className={`flex flex-row flex-grow ${route == Home ? "" : "items-center"}`}>
         <div>
           {switch route {
-          | Home => <> </>
+          | Home =>
+            <h1 className="text-5xl tracking-tight text-gray-900 py-10">
+              <p className="block xl"> {"Ethan A. Brooks"->React.string} </p>
+              <p className="block text-gray-600 xl"> {"Researcher"->React.string} </p>
+              <p className="block text-gray-600 xl"> {"Reinforcement Learning"->React.string} </p>
+              <p className="block text-gray-600 xl"> {"Natural Language"->React.string} </p>
+            </h1>
           | Invalid =>
             <h1 className={`rounded-md ${h1ClassName}`}> {"Page not found."->React.string} </h1>
           | _ =>
