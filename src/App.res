@@ -184,8 +184,8 @@ let make = (): React.element => {
                   {books
                   ->Array.mapWithIndex((i, {title, author, translator, link}) =>
                     <li key={i->Int.toString}>
-                      <a href=link>
-                        <div className={`flex flex-col ${clickableClassName}  ${padding}`}>
+                      <a href=link className=clickableClassName>
+                        <div className={`flex flex-col  ${padding}`}>
                           <div className="flex flex-row space-x-4">
                             <h2 className=h2ClassName> {title->React.string} </h2>
                             <p> {author->React.string} </p>
