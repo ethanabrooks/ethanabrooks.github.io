@@ -3,6 +3,7 @@
 /dev/*.json
 /dev/main.css
 /dist/*.json
+/dist/*.png
 /dist/main.css
 /dist/main.js
 /lib/
@@ -10,6 +11,5 @@
 /release.tzst
 /src/**/*.bs.js
 .idea
-dist/*
 .env
 node_modules
