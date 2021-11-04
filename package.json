@@ -14,7 +14,7 @@
     "predeploy:bundle": "bsb -make-world && esbuild --loader:.bib=text  --define:process.version=\\\"v14.16.0\\\" --bundle src/Index.bs.js --external:react --external:react-dom --minify --outfile=dist/main.js",
     "predeploy:css": "NODE_ENV=production postcss src/main.css -o dist/main.css",
     "predeploy:static": "rsync -av static/ dist/",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages --dist 'dist' --branch 'gh-pages'"
   },
   "dependencies": {
     "@rescript/react": "^0.10.3",
