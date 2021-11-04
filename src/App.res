@@ -13,8 +13,8 @@ type citation
 @module external papers: string = "./papers.bib"
 
 let navItemClassName = "hover:text-gray-700 hover:border-gray-300 text-sm border-b2"
-let activeClassName = "border-black border-b text-sm cursor-default"
-let inactiveClassName = "border-transparent hover:border-gray-700 hover:text-gray-800 border-b text-sm"
+let activeClassName = "border-black border-b text-sm cursor-default mx-3"
+let inactiveClassName = "border-transparent hover:border-gray-700 hover:text-gray-800 border-b text-sm mx-3"
 let divideClassName = "divide-y divide-gray-200"
 let padding = "p-5"
 let h1ClassName = `ring-black ring-opacity-5 bg-white text-3xl font-bold text-gray-900 ${padding}`
@@ -28,12 +28,12 @@ let make = (): React.element => {
   let url = RescriptReactRouter.useUrl()
   let route = url.hash->Js.Global.decodeURI->Route.fromString
   <div
-    className="w-screen h-screen bg-cover"
+    className="w-screen h-screen bg-center bg-cover"
     style={ReactDOM.Style.make(
       ~backgroundImage=`url('https://github.com/ethanabrooks/ethanabrooks.github.io/blob/master/static/portrait.png?raw=true')`,
       (),
     )}>
-    <div className="flex flex-col p-10 lg:w-2/5 xl:w-1/2 h-screen">
+    <div className="flex flex-col p-10 sm:w-3/5 xl:w-1/2 3xl:w-2/5 h-screen">
       <nav className="flex flex-col sm:flex-row flex-wrap justify-between">
         {Route.array
         ->Array.mapWithIndex((i, r) => {
@@ -46,15 +46,16 @@ let make = (): React.element => {
         })
         ->React.array}
       </nav>
-      <div className={`flex flex-row flex-grow ${route == Home ? "" : "items-center"}`}>
+      <div className={route == Home ? "" : "flex flex-row justify-between flex-grow  items-center"}>
         <div>
           {switch route {
           | Home =>
-            <h1 className="text-5xl tracking-tight text-gray-900 py-10">
-              <p className="block xl"> {"Ethan A. Brooks"->React.string} </p>
-              <p className="block text-gray-600 xl"> {"Researcher"->React.string} </p>
-              <p className="block text-gray-600 xl"> {"Reinforcement Learning"->React.string} </p>
-              <p className="block text-gray-600 xl"> {"Natural Language"->React.string} </p>
+            <h1
+              className="text-xl sm:text-4xl lg:text-6xl tracking-tight text-gray-900 py-10 3xl:text-4xl 3xl:flex 3xl:flex-row 3xl:flex-1 3xl:justify-between">
+              <p className="block"> {"Ethan A. Brooks"->React.string} </p>
+              <p className="block text-gray-600"> {"Researcher"->React.string} </p>
+              <p className="block text-gray-600"> {"Reinforcement Learning"->React.string} </p>
+              <p className="block text-gray-600"> {"Natural Language"->React.string} </p>
             </h1>
           | Invalid =>
             <h1 className={`rounded-md ${h1ClassName}`}> {"Page not found."->React.string} </h1>
