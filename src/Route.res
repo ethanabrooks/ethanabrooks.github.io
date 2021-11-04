@@ -10,7 +10,9 @@ let fromString = (string: string): route =>
   | "Education" => Education
   | "Work Experience" => WorkExperience
   | "Reading" => Reading
-  | "Home" => Home
+  | "Home"
+  | "" =>
+    Home
   | _ => Invalid
   }
 
