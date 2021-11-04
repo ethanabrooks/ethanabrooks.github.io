@@ -1,8 +1,11 @@
 @react.component
 let make = (~error: Decco.decodeError): React.element => {
   <>
-    <p> {error.path->React.string} </p>
-    <p> {error.message->React.string} </p>
-    <p> {error.value->Js.Json.stringifyWithSpace(2)->React.string} </p>
+    <h2 className="text-lg leading-6 font-medium text-gray-900 flex-grow">
+      {"Error:"->React.string}
+    </h2>
+    <p> {`Path: ${error.path}`->React.string} </p>
+    <p> {`Message: ${error.message}`->React.string} </p>
+    <p> {`Value: ${error.value->Js.Json.stringifyWithSpace(2)}`->React.string} </p>
   </>
 }

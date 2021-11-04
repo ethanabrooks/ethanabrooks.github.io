@@ -7,6 +7,64 @@
             "GPT-2",
             "NLP"
         ],
-        "startDate": "2020"
+        "startDate": "2020",
+        "endDate": "ongoing",
+        "description": "Exploring applications of pretrained Foundation Models (e.g. GPT-2) to reinforcement learning.In particular, studying the psychological phenomenon of “internal monologue” in terms of utility.Currently investigating problems relating to generalization, hierarchy, and exploration. (In collab-oration with Logan Walls, Richard Lewis, and Satinder Singh.)"
+    },
+    {
+        "title": "DARPA L2M Grant",
+        "keywords": [
+            "Deep RL",
+            "Multi-task RL",
+            "Jax",
+            "Pytorch",
+            "Docker"
+        ],
+        "startDate": "2020",
+        "endDate": "ongoing",
+        "description": "Application of lifelong reinforcement learning algorithms to the Habitat AI simulation platform"
+    },
+    {
+        "title": "Run Tracker",
+        "keywords": [
+            "Docker",
+            "Hasura",
+            "Postgres",
+            "React",
+            "Rescript"
+        ],
+        "startDate": "2021",
+        "description": "Utilities for launching hyperparameter sweeps, logging metadata, and visualizing runs",
+        "link": "https://github.com/run-tracker/"
+    },
+    {
+        "title": "Off-Policy RL that Prioritizes Value Function Improvement for Speedup",
+        "keywords": [
+            "Deep RL",
+            "Off-policy RL"
+        ],
+        "startDate": "2019",
+        "description": "Study of distributed learning of off-policy value-functions.",
+        "link": "https://www.overleaf.com/read/kbhwztqhmmfg/"
+    },
+    {
+        "title": "Reproduction of \"Exploration in Policy Mirror Descent\"",
+        "keywords": [
+            "Deep RL",
+            "Optimization"
+        ],
+        "description": "Reproducibility study",
+        "link": "https://www.overleaf.com/read/rqbmhmxjyqvd/",
+        "startDate": "2019"
+    },
+    {
+        "title": "Python MuJoCo Wrapper",
+        "keywords": [
+            "MuJoCo",
+            "Cython"
+        ],
+        "description": "Minimal Python bindings for the MuJoCo physics simulator.",
+        "link": "https://github.com/mujoco/",
+        "startDate": "2017"
     }
 ]
