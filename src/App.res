@@ -18,12 +18,11 @@ let inactiveClassName = "border-transparent hover:border-gray-700 hover:text-gra
 let divideClassName = "divide-y divide-gray-200"
 let padding = "p-5"
 
-let removeUnderscore = Js.String.replace("_", " ")
-
 @react.component
 let make = (): React.element => {
   let url = RescriptReactRouter.useUrl()
-  let route = url.hash->Route.fromString
+  let route = url.hash->Js.Global.decodeURI->Route.fromString
+  Js.log(url.hash->Js.Global.decodeURI)
   <div
     className="w-screen h-screen bg-cover"
     style={ReactDOM.Style.make(
@@ -36,9 +35,9 @@ let make = (): React.element => {
         ->Array.mapWithIndex((i, r) => {
           <a
             key={i->Int.toString}
-            href={`#${r->Route.toString}`}
+            href={`#${r->Route.toString->Js.Global.encodeURI}`}
             className={r == route ? activeClassName : inactiveClassName}>
-            {r->Route.toString->removeUnderscore->React.string}
+            {r->Route.toString->React.string}
           </a>
         })
         ->React.array}
@@ -47,13 +46,21 @@ let make = (): React.element => {
         <div>
           {switch route {
           | Home => <> </>
+          | Invalid =>
+            <h1
+              className={`rounded-md ring-black ring-opacity-5 bg-white border-gray-200 
+             text-3xl font-bold leading-tight text-gray-900
+             ${padding}
+             `}>
+              {"Page not found."->React.string}
+            </h1>
           | _ =>
             <h1
               className={`rounded-t-md ring-black ring-opacity-5 bg-white border-gray-200 
              text-3xl font-bold leading-tight text-gray-900
              ${padding}
              `}>
-              {route->Route.toString->removeUnderscore->React.string}
+              {route->Route.toString->React.string}
             </h1>
           }}
           <div
@@ -62,9 +69,9 @@ rounded-b-md ring-1 ring-black ring-opacity-5 bg-white  border-gray-200
 ">
             {switch route {
             | Home => <> </>
-            | Interests =>
-              rawInterests
-              ->interests_decode
+            | AboutMe =>
+              rawAbout
+              ->aboutMe_decode
               ->Result.map(interests => <p className=padding> {interests->React.string} </p>)
               ->getOrErrorPage
             | Publications =>
@@ -110,6 +117,42 @@ rounded-b-md ring-1 ring-black ring-opacity-5 bg-white  border-gray-200
                 </ul>
               )
               ->getOrErrorPage
+            | WorkExperience =>
+              rawWork
+              ->work_decode
+              ->Result.map(jobs =>
+                <ul className=divideClassName>
+                  {jobs
+                  ->Array.mapWithIndex((
+                    i,
+                    {institution, role, description, location, startDate, endDate},
+                  ) =>
+                    <li key={i->Int.toString}>
+                      <div className={`flex flex-col ${padding}`}>
+                        <div className="flex flex-row">
+                          <h2
+                            className="
+                          text-lg leading-6 font-medium text-gray-900
+                          flex-grow">
+                            {`${institution} ${location->Option.mapWithDefault("", location =>
+                                `(${location})`
+                              )}`->React.string}
+                          </h2>
+                          <p> {startDate->React.string} </p>
+                          {endDate->Option.mapWithDefault(<> </>, endDate => <>
+                            <p> {"-"->React.string} </p> <p> {endDate->React.string} </p>
+                          </>)}
+                        </div>
+                        <p> {role->React.string} </p>
+                        <p className="text-gray-500"> {description->React.string} </p>
+                      </div>
+                    </li>
+                  )
+                  ->React.array}
+                </ul>
+              )
+              ->getOrErrorPage
+
             | Education =>
               rawEducation
               ->education_decode
@@ -176,12 +219,7 @@ rounded-b-md ring-1 ring-black ring-opacity-5 bg-white  border-gray-200
                 </ul>
               )
               ->getOrErrorPage
-            | _ =>
-              <p className="">
-                {"
-      Under construction
-      "->React.string}
-              </p>
+            | _ => <> </>
             }}
           </div>
         </div>

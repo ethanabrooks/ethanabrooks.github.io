@@ -1,27 +1,27 @@
 type route =
-  Interests | Publications | Projects | Education | WorkExperience | Reading | Invalid | Home
-let array = [Interests, Publications, Projects, Education, WorkExperience, Reading]
+  AboutMe | Publications | Projects | Education | WorkExperience | Reading | Invalid | Home
+let array = [AboutMe, Publications, Projects, Education, WorkExperience, Reading]
 
 let fromString = (string: string): route =>
   switch string {
-  | "Interests" => Interests
+  | "About Me" => AboutMe
   | "Publications" => Publications
   | "Projects" => Projects
   | "Education" => Education
-  | "Work_Experience" => WorkExperience
-  | "Currently_Reading" => Reading
+  | "Work Experience" => WorkExperience
+  | "Currently Reading" => Reading
   | "" => Home
   | _ => Invalid
   }
 
 let toString = (route: route): string =>
   switch route {
-  | Interests => "Interests"
+  | AboutMe => "About Me"
   | Publications => "Publications"
   | Projects => "Projects"
   | Education => "Education"
-  | WorkExperience => "Work_Experience"
-  | Reading => "Currently_Reading"
+  | WorkExperience => "Work Experience"
+  | Reading => "Currently Reading"
   | Invalid => "Invalid"
   | Home => ""
   }

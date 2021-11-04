@@ -1,11 +1,12 @@
 open Belt
-@module external rawInterests: Js.Json.t = "./Interests.json"
+@module external rawAbout: Js.Json.t = "./About.json"
 @module external rawProjects: Js.Json.t = "./Projects.json"
 @module external rawEducation: Js.Json.t = "./Education.json"
+@module external rawWork: Js.Json.t = "./Work.json"
 @module external rawReading: Js.Json.t = "./Reading.json"
 
 @decco
-type interests = string
+type aboutMe = string
 
 @decco
 type project = {
@@ -32,6 +33,20 @@ type degree = {
 
 @decco
 type education = array<degree>
+
+@decco
+type job = {
+  institution: string,
+  keywords: array<string>,
+  role: string,
+  description: string,
+  location: option<string>,
+  startDate: string,
+  endDate: option<string>,
+}
+
+@decco
+type work = array<job>
 
 @decco
 type book = {

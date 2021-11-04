@@ -1,0 +1,44 @@
+[
+    {
+        "institution": "University of Michigan",
+        "keywords": [
+            "MuJoCo",
+            "Robotics",
+            "Deep RL"
+        ],
+        "role": "Research Engineer under Satinder Singh",
+        "description": "Applied reinforcement learning to simulated robotic grasping using MuJoCo.",
+        "location": "Ann Arbor, MI",
+        "startDate": "Fall 2017"
+    },
+    {
+        "institution": "Google",
+        "keywords": [
+            "Data Science",
+            "Machine Learning"
+        ],
+        "role": "Intern with Android Location and Context Team",
+        "description": "Used machine learning to determine the most battery-eﬀicient times for Android location scans.",
+        "location": "Mountain View, CA",
+        "startDate": "Summer 2017"
+    },
+    {
+        "institution": "Apple",
+        "keywords": [
+            "Natural Language Processing",
+            "Deep Learning"
+        ],
+        "role": "Intern with Siri Natural Language Team",
+        "description": "Built attention-based deep learning algorithms in Torch to improve sentence classification.",
+        "location": "Cupertino, CA",
+        "startDate": "Summer 2016"
+    },
+    {
+        "institution": "United States Marine Corps",
+        "keywords": [],
+        "role": "Intelligence Officer (Rank: Captain)",
+        "description": "Established a new intelligence section that oversaw intelligence analysis and security management.",
+        "startDate": "2010",
+        "endDate": "2015"
+    }
+]
