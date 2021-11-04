@@ -13,8 +13,9 @@ type citation
 @module external papers: string = "./papers.bib"
 
 let navItemClassName = "hover:text-gray-700 hover:border-gray-300 text-sm border-b2"
-let activeClassName = "border-black border-b text-sm cursor-default mx-3"
-let inactiveClassName = "border-transparent hover:border-gray-700 hover:text-gray-800 border-b text-sm mx-3"
+let navClassName = "border-transparent border-b text-sm text-md sm:text-sm sm:mx-3 w-auto"
+let activeClassName = `underline sm:no-underline sm:border-black cursor-default ${navClassName}`
+let inactiveClassName = `hover:underline sm:hover:no-underline sm:hover:border-gray-700 sm:hover:text-gray-800 ${navClassName}`
 let divideClassName = "divide-y divide-gray-200"
 let padding = "p-5"
 let h1ClassName = `ring-black ring-opacity-5 bg-white text-3xl font-bold text-gray-900 ${padding}`
