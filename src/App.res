@@ -13,7 +13,7 @@ type citation
 @module external papers: string = "./papers.bib"
 
 let navItemClassName = "hover:text-gray-700 hover:border-gray-300 text-sm border-b2"
-let navClassName = "border-transparent border-b text-sm lg:text-sm sm:mx-3 w-auto"
+let navClassName = "border-transparent border-b text-sm lg:text-sm sm:mx-4 w-auto"
 let activeClassName = `underline sm:no-underline sm:border-black cursor-default ${navClassName}`
 let inactiveClassName = `hover:underline sm:hover:no-underline sm:hover:border-gray-700 sm:hover:text-gray-800 ${navClassName}`
 let divideClassName = "divide-y divide-gray-200"
@@ -52,7 +52,7 @@ let make = (): React.element => {
           {switch route {
           | Home =>
             <h1
-              className="text-xl sm:text-4xl tracking-tight sm:py-10 2xl:py-8 3xl:text-4xl 3xl:flex 3xl:flex-row 3xl:flex-1 3xl:justify-between">
+              className="text-xl sm:text-3xl tracking-tight sm:py-10 2xl:py-8 3xl:text-4xl 3xl:flex 3xl:flex-row 3xl:flex-1 3xl:justify-between">
               <p className="block"> {"Ethan A. Brooks"->React.string} </p>
               <p className="block text-gray-700"> {"Researcher"->React.string} </p>
               <p className="block text-gray-700"> {"Reinforcement Learning"->React.string} </p>
