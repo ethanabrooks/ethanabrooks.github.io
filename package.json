@@ -7,7 +7,7 @@
     "format": "prettier -w **/*.css **/*.html **/*.json **/*.scss src/**/*.js *.js",
     "dev": "concurrently 'node server.js dev' 'yarn dev:build' 'yarn dev:bundle' 'yarn dev:css'",
     "dev:build": "bsb -make-world -w -ws _",
-    "dev:bundle": "esbuild --define:process.env.NODE_ENV=\\\"production\\\"  --serve=localhost:8001 --bundle src/Index.bs.js --external:react --external:react-dom",
+    "dev:bundle": "esbuild --define:process.version=\\\"v14.16.0\\\" --define:process.env.NODE_ENV=\\\"production\\\"  --serve=localhost:8001 --bundle src/Index.bs.js --external:react --external:react-dom",
     "dev:css": "postcss src/main.css -o dev/main.css",
     "prod": "concurrently 'yarn prod:bundle' 'yarn prod:css' 'yarn prod:static' 'yarn prod:serve'",
     "prod:build": "concurrently 'yarn prod:bundle' 'yarn prod:css'",
@@ -19,6 +19,7 @@
     "@rescript/react": "^0.10.3",
     "bs-platform": "^9.0.1",
     "citation-js": "^0.5.1",
+    "decco": "^1.5.0",
     "prettier": "^2.2.1",
     "react": "^17.0.2",
     "tailwindcss": "^2.1.2"
