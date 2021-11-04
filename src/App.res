@@ -21,12 +21,12 @@ let h1ClassName = `ring-black ring-opacity-5 bg-white text-3xl font-bold text-gr
 let h2ClassName = "text-lg leading-6 font-medium text-gray-900 flex-grow"
 let liPrimaryClassName = ""
 let liSecondaryClassName = "text-gray-500"
+let clickableClassName = "block hover:bg-gray-50"
 
 @react.component
 let make = (): React.element => {
   let url = RescriptReactRouter.useUrl()
   let route = url.hash->Js.Global.decodeURI->Route.fromString
-  Js.log(url.hash->Js.Global.decodeURI)
   <div
     className="w-screen h-screen bg-cover"
     style={ReactDOM.Style.make(
@@ -90,19 +90,23 @@ let make = (): React.element => {
                 <ul className=divideClassName>
                   {projects
                   ->Array.mapWithIndex((i, {title, startDate, endDate, description, link}) => {
-                    let li =
-                      <li key={i->Int.toString}>
-                        <div className={`flex flex-col ${padding}`}>
-                          <div className="flex flex-row py-2">
-                            <h2 className=h2ClassName> {title->React.string} </h2>
-                            <p> {startDate->React.string} </p>
-                            <p> {"-"->React.string} </p>
-                            <p> {endDate->Option.getWithDefault("current")->React.string} </p>
-                          </div>
-                          <p className=liPrimaryClassName> {description->React.string} </p>
+                    let content =
+                      <div className={`flex flex-col ${padding}`}>
+                        <div className="flex flex-row py-2">
+                          <h2 className=h2ClassName> {title->React.string} </h2>
+                          <p> {startDate->React.string} </p>
+                          <p> {"-"->React.string} </p>
+                          <p> {endDate->Option.getWithDefault("current")->React.string} </p>
                         </div>
-                      </li>
-                    link->Option.mapWithDefault(li, link => <a href={link}> {li} </a>)
+                        <p className=liPrimaryClassName> {description->React.string} </p>
+                      </div>
+                    <li key={i->Int.toString}>
+                      {link->Option.mapWithDefault(content, link =>
+                        <a key={i->Int.toString} href=link className=clickableClassName>
+                          {content}
+                        </a>
+                      )}
+                    </li>
                   })
                   ->React.array}
                 </ul>
@@ -181,7 +185,7 @@ let make = (): React.element => {
                   ->Array.mapWithIndex((i, {title, author, translator, link}) =>
                     <li key={i->Int.toString}>
                       <a href=link>
-                        <div className={`flex flex-col ${padding}`}>
+                        <div className={`flex flex-col ${clickableClassName}  ${padding}`}>
                           <div className="flex flex-row space-x-4">
                             <h2 className=h2ClassName> {title->React.string} </h2>
                             <p> {author->React.string} </p>
