@@ -1,12 +1,9 @@
 open Belt
-@module external rawAbout: Js.Json.t = "./About.json"
+@module external aboutMe: string = "./About.txt"
 @module external rawProjects: Js.Json.t = "./Projects.json"
 @module external rawEducation: Js.Json.t = "./Education.json"
 @module external rawWork: Js.Json.t = "./Work.json"
 @module external rawReading: Js.Json.t = "./Reading.json"
-
-@decco
-type aboutMe = string
 
 @decco
 type project = {

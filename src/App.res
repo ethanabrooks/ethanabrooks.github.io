@@ -17,7 +17,10 @@ let activeClassName = "border-black border-b text-sm cursor-default"
 let inactiveClassName = "border-transparent hover:border-gray-700 hover:text-gray-800 border-b text-sm"
 let divideClassName = "divide-y divide-gray-200"
 let padding = "p-5"
-let headerClassName = `ring-black ring-opacity-5 bg-white text-3xl font-bold text-gray-900 ${padding}`
+let h1ClassName = `ring-black ring-opacity-5 bg-white text-3xl font-bold text-gray-900 ${padding}`
+let h2ClassName = "text-lg leading-6 font-medium text-gray-900 flex-grow"
+let liPrimaryClassName = ""
+let liSecondaryClassName = "text-gray-500"
 
 @react.component
 let make = (): React.element => {
@@ -48,9 +51,9 @@ let make = (): React.element => {
           {switch route {
           | Home => <> </>
           | Invalid =>
-            <h1 className={`rounded-md ${headerClassName}`}> {"Page not found."->React.string} </h1>
+            <h1 className={`rounded-md ${h1ClassName}`}> {"Page not found."->React.string} </h1>
           | _ =>
-            <h1 className={`rounded-t-md border-b ${headerClassName}`}>
+            <h1 className={`rounded-t-md border-b ${h1ClassName}`}>
               {route->Route.toString->React.string}
             </h1>
           }}
@@ -58,10 +61,12 @@ let make = (): React.element => {
             {switch route {
             | Home => <> </>
             | AboutMe =>
-              rawAbout
-              ->aboutMe_decode
-              ->Result.map(interests => <p className=padding> {interests->React.string} </p>)
-              ->getOrErrorPage
+              aboutMe
+              ->Js.String2.split("\n\n")
+              ->Array.mapWithIndex((i, paragraph) =>
+                <p key={i->Int.toString} className={padding}> {paragraph->React.string} </p>
+              )
+              ->React.array
             | Publications =>
               let config: config = {template: "citation-mla", lang: "en-us"}
               <ul className=divideClassName>
@@ -89,14 +94,12 @@ let make = (): React.element => {
                       <li key={i->Int.toString}>
                         <div className={`flex flex-col ${padding}`}>
                           <div className="flex flex-row py-2">
-                            <h2 className="text-lg leading-6 font-medium text-gray-900 flex-grow">
-                              {title->React.string}
-                            </h2>
+                            <h2 className=h2ClassName> {title->React.string} </h2>
                             <p> {startDate->React.string} </p>
                             <p> {"-"->React.string} </p>
                             <p> {endDate->Option.getWithDefault("current")->React.string} </p>
                           </div>
-                          <p> {description->React.string} </p>
+                          <p className=liPrimaryClassName> {description->React.string} </p>
                         </div>
                       </li>
                     link->Option.mapWithDefault(li, link => <a href={link}> {li} </a>)
@@ -118,10 +121,7 @@ let make = (): React.element => {
                     <li key={i->Int.toString}>
                       <div className={`flex flex-col ${padding}`}>
                         <div className="flex flex-row">
-                          <h2
-                            className="
-                          text-lg leading-6 font-medium text-gray-900
-                          flex-grow">
+                          <h2 className=h2ClassName>
                             {`${institution} ${location->Option.mapWithDefault("", location =>
                                 `(${location})`
                               )}`->React.string}
@@ -131,8 +131,8 @@ let make = (): React.element => {
                             <p> {"-"->React.string} </p> <p> {endDate->React.string} </p>
                           </>)}
                         </div>
-                        <p> {role->React.string} </p>
-                        <p className="text-gray-500"> {description->React.string} </p>
+                        <p className=liPrimaryClassName> {role->React.string} </p>
+                        <p className=liSecondaryClassName> {description->React.string} </p>
                       </div>
                     </li>
                   )
@@ -154,19 +154,16 @@ let make = (): React.element => {
                     <li key={i->Int.toString}>
                       <div className={`flex flex-col ${padding}`}>
                         <div className="flex flex-row">
-                          <h2
-                            className="
-                          text-lg leading-6 font-medium text-gray-900
-                          flex-grow">
+                          <h2 className=h2ClassName>
                             {`${institution} (${location})`->React.string}
                           </h2>
                           <p> {startDate->React.string} </p>
                           <p> {"-"->React.string} </p>
                           <p> {endDate->React.string} </p>
                         </div>
-                        <p> {degree->React.string} </p>
+                        <p className=liPrimaryClassName> {degree->React.string} </p>
                         {info->Option.mapWithDefault(<> </>, info =>
-                          <p className="text-gray-500"> {info->React.string} </p>
+                          <p className=liSecondaryClassName> {info->React.string} </p>
                         )}
                       </div>
                     </li>
@@ -186,16 +183,11 @@ let make = (): React.element => {
                       <a href=link>
                         <div className={`flex flex-col ${padding}`}>
                           <div className="flex flex-row space-x-4">
-                            <h2
-                              className="
-                          text-lg leading-6 font-medium text-gray-900
-                          flex-grow">
-                              {title->React.string}
-                            </h2>
+                            <h2 className=h2ClassName> {title->React.string} </h2>
                             <p> {author->React.string} </p>
                           </div>
                           {translator->Option.mapWithDefault(<> </>, translator =>
-                            <p className="text-gray-500">
+                            <p className=liPrimaryClassName>
                               {`Translated by ${translator}`->React.string}
                             </p>
                           )}
