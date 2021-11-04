@@ -1,0 +1,2 @@
+- host papers on site
+- highlight name in publications
