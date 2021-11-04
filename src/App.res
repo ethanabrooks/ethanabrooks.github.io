@@ -58,6 +58,10 @@ let make = (): React.element => {
             </h1>
           | Invalid =>
             <h1 className={`rounded-md ${h1ClassName}`}> {"Page not found."->React.string} </h1>
+          | AboutMe =>
+            <h1 className={`rounded-t-md border-b ${h1ClassName}`}>
+              {`${route->Route.toString} A. Brooks`->React.string}
+            </h1>
           | _ =>
             <h1 className={`rounded-t-md border-b ${h1ClassName}`}>
               {route->Route.toString->React.string}
@@ -108,7 +112,11 @@ let make = (): React.element => {
                       </div>
                     <li key={i->Int.toString}>
                       {link->Option.mapWithDefault(content, link =>
-                        <a key={i->Int.toString} href=link className=clickableClassName>
+                        <a
+                          key={i->Int.toString}
+                          href=link
+                          target="_blank"
+                          className=clickableClassName>
                           {content}
                         </a>
                       )}
@@ -190,7 +198,7 @@ let make = (): React.element => {
                   {books
                   ->Array.mapWithIndex((i, {title, author, translator, link}) =>
                     <li key={i->Int.toString}>
-                      <a href=link className=clickableClassName>
+                      <a href=link target="_blank" className=clickableClassName>
                         <div className={`flex flex-col  ${padding}`}>
                           <div className="flex flex-row space-x-4">
                             <h2 className=h2ClassName> {title->React.string} </h2>

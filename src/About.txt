@@ -4,9 +4,9 @@ encounters with empiricist philosophy in college. I believe that reinforcement
 learning and deep learning supply compelling answers to the
 centuries-old question of how human beings learn to make sense of the "blooming,
 buzzing confusion" (William James, Principles of Psychology) of sensory experience and learn to thrive in our infinitely
-chaotic reality.
+chaotic reality."
 
-My research interests focus on the intersection of reinforcement learning and natural
+"My research interests focus on the intersection of reinforcement learning and natural
 language. I am interested in leveraging large data sets and the supervised
 models trained on them (e.g. GPT-X) to improve reinforcement learning. I am also
 interested in the role of reinforcement learning in discovering both natural
