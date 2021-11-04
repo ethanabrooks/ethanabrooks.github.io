@@ -70,11 +70,11 @@ rounded-b-md ring-1 ring-black ring-opacity-5 bg-white  border-gray-200
                 ->Js.Array.from
                 ->Array.map(cite)
                 ->Array.map(citation => citation->format("bibliography", config))
-                ->Array.mapWithIndex((i, citation) =>
+                ->Array.mapWithIndex((i, citation) => {
                   <li key={i->Int.toString}>
                     <p className=padding> {citation->React.string} </p>
                   </li>
-                )
+                })
                 ->React.array}
               </ul>
 
@@ -84,21 +84,23 @@ rounded-b-md ring-1 ring-black ring-opacity-5 bg-white  border-gray-200
               ->Result.map(projects =>
                 <ul className=divideClassName>
                   {projects
-                  ->Array.mapWithIndex((i, {title, startDate, endDate, description}) =>
-                    <li key={i->Int.toString}>
-                      <div className={`flex flex-col ${padding}`}>
-                        <div className="flex flex-row py-2">
-                          <h2 className="text-lg leading-6 font-medium text-gray-900 flex-grow">
-                            {title->React.string}
-                          </h2>
-                          <p> {startDate->React.string} </p>
-                          <p> {"-"->React.string} </p>
-                          <p> {endDate->Option.getWithDefault("current")->React.string} </p>
+                  ->Array.mapWithIndex((i, {title, startDate, endDate, description, link}) => {
+                    let li =
+                      <li key={i->Int.toString}>
+                        <div className={`flex flex-col ${padding}`}>
+                          <div className="flex flex-row py-2">
+                            <h2 className="text-lg leading-6 font-medium text-gray-900 flex-grow">
+                              {title->React.string}
+                            </h2>
+                            <p> {startDate->React.string} </p>
+                            <p> {"-"->React.string} </p>
+                            <p> {endDate->Option.getWithDefault("current")->React.string} </p>
+                          </div>
+                          <p> {description->React.string} </p>
                         </div>
-                        <p> {description->React.string} </p>
-                      </div>
-                    </li>
-                  )
+                      </li>
+                    link->Option.mapWithDefault(li, link => <a href={link}> {li} </a>)
+                  })
                   ->React.array}
                 </ul>
               )
@@ -145,22 +147,24 @@ rounded-b-md ring-1 ring-black ring-opacity-5 bg-white  border-gray-200
                   {books
                   ->Array.mapWithIndex((i, {title, author, translator, link}) =>
                     <li key={i->Int.toString}>
-                      <div className={`flex flex-col ${padding}`}>
-                        <div className="flex flex-row space-x-4">
-                          <h2
-                            className="
+                      <a href=link>
+                        <div className={`flex flex-col ${padding}`}>
+                          <div className="flex flex-row space-x-4">
+                            <h2
+                              className="
                           text-lg leading-6 font-medium text-gray-900
                           flex-grow">
-                            {title->React.string}
-                          </h2>
-                          <p> {author->React.string} </p>
+                              {title->React.string}
+                            </h2>
+                            <p> {author->React.string} </p>
+                          </div>
+                          {translator->Option.mapWithDefault(<> </>, translator =>
+                            <p className="text-gray-500">
+                              {`Translated by ${translator}`->React.string}
+                            </p>
+                          )}
                         </div>
-                        {translator->Option.mapWithDefault(<> </>, translator =>
-                          <p className="text-gray-500">
-                            {`Translated by ${translator}`->React.string}
-                          </p>
-                        )}
-                      </div>
+                      </a>
                     </li>
                   )
                   ->React.array}
