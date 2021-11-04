@@ -34,8 +34,7 @@ let make = (): React.element => {
       (),
     )}>
     <div className="flex flex-col p-10 lg:w-2/5 xl:w-1/2 h-screen">
-      <nav
-        className="flex sm:flex-row md:flex-row lg:flex-row xl:flex-row flex-col flex-wrap justify-between">
+      <nav className="flex flex-col sm:flex-row flex-wrap justify-between">
         {Route.array
         ->Array.mapWithIndex((i, r) => {
           <a
