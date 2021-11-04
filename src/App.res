@@ -45,18 +45,23 @@ let make = (): React.element => {
       </nav>
       <div className="flex flex-row flex-grow items-center">
         <div>
-          <h1
-            className={`rounded-t-md ring-black ring-opacity-5 bg-white border-gray-200 
+          {switch route {
+          | Home => <> </>
+          | _ =>
+            <h1
+              className={`rounded-t-md ring-black ring-opacity-5 bg-white border-gray-200 
              text-3xl font-bold leading-tight text-gray-900
              ${padding}
              `}>
-            {url.hash->removeUnderscore->React.string}
-          </h1>
+              {route->Route.toString->removeUnderscore->React.string}
+            </h1>
+          }}
           <div
             className="
 rounded-b-md ring-1 ring-black ring-opacity-5 bg-white  border-gray-200
 ">
             {switch route {
+            | Home => <> </>
             | Interests =>
               rawInterests
               ->interests_decode

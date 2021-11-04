@@ -1,4 +1,5 @@
-type route = Interests | Publications | Projects | Education | WorkExperience | Reading | Invalid
+type route =
+  Interests | Publications | Projects | Education | WorkExperience | Reading | Invalid | Home
 let array = [Interests, Publications, Projects, Education, WorkExperience, Reading]
 
 let fromString = (string: string): route =>
@@ -9,6 +10,7 @@ let fromString = (string: string): route =>
   | "Education" => Education
   | "Work_Experience" => WorkExperience
   | "Currently_Reading" => Reading
+  | "" => Home
   | _ => Invalid
   }
 
@@ -21,4 +23,5 @@ let toString = (route: route): string =>
   | WorkExperience => "Work_Experience"
   | Reading => "Currently_Reading"
   | Invalid => "Invalid"
+  | Home => ""
   }
