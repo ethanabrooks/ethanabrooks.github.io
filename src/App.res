@@ -17,6 +17,7 @@ let activeClassName = "border-black border-b text-sm cursor-default"
 let inactiveClassName = "border-transparent hover:border-gray-700 hover:text-gray-800 border-b text-sm"
 let divideClassName = "divide-y divide-gray-200"
 let padding = "p-5"
+let headerClassName = `ring-black ring-opacity-5 bg-white text-3xl font-bold text-gray-900 ${padding}`
 
 @react.component
 let make = (): React.element => {
@@ -47,26 +48,13 @@ let make = (): React.element => {
           {switch route {
           | Home => <> </>
           | Invalid =>
-            <h1
-              className={`rounded-md ring-black ring-opacity-5 bg-white border-gray-200 
-             text-3xl font-bold leading-tight text-gray-900
-             ${padding}
-             `}>
-              {"Page not found."->React.string}
-            </h1>
+            <h1 className={`rounded-md ${headerClassName}`}> {"Page not found."->React.string} </h1>
           | _ =>
-            <h1
-              className={`rounded-t-md ring-black ring-opacity-5 bg-white border-gray-200 
-             text-3xl font-bold leading-tight text-gray-900
-             ${padding}
-             `}>
+            <h1 className={`rounded-t-md border-b ${headerClassName}`}>
               {route->Route.toString->React.string}
             </h1>
           }}
-          <div
-            className="
-rounded-b-md ring-1 ring-black ring-opacity-5 bg-white  border-gray-200
-">
+          <div className="rounded-b-md ring-black ring-opacity-5 bg-white  border-gray-200">
             {switch route {
             | Home => <> </>
             | AboutMe =>
