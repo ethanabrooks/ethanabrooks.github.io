@@ -33,7 +33,7 @@ let make = (): React.element => {
       ~backgroundImage=`url('https://github.com/ethanabrooks/ethanabrooks.github.io/blob/master/static/portrait.png?raw=true')`,
       (),
     )}>
-    <div className="flex flex-col p-10 w-2/5 h-screen">
+    <div className="flex flex-col p-10 lg:w-2/5 xl:w-1/2 h-screen">
       <nav className="flex flex-row flex-wrap justify-between">
         {Route.array
         ->Array.mapWithIndex((i, r) => {
@@ -70,7 +70,10 @@ let make = (): React.element => {
           <div className="rounded-b-md ring-black ring-opacity-5 bg-white  border-gray-200">
             {switch route {
             | Home => <> </>
-            | AboutMe => aboutMe->parseHtml
+            | AboutMe =>
+              <div className=divideClassName>
+                {aboutMe->parseHtml} <p className=padding> {"ethanabrooks "->React.string} </p>
+              </div>
             | Publications =>
               let config: config = {template: "citation-mla", lang: "en-us"}
               <ul className=divideClassName>
