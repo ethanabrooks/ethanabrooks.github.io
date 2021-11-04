@@ -3,11 +3,14 @@ open Json
 
 type config = {template: string, lang: string}
 
-type t
-@new @module external citeSingle: string => t = "citation-js"
-@new @module external citeMultiple: array<string> => t = "citation-js"
-@send external format: (t, string, config) => string = "format"
-// @module external papers: string = "./papers.bib"
+type entry
+type entries = Js.Array.array_like<entry>
+
+type citation
+@new @module external citeBib: string => entries = "citation-js"
+@new @module external cite: entry => citation = "citation-js"
+@send external format: (citation, string, config) => string = "format"
+@module external papers: string = "./papers.bib"
 
 let navItemClassName = "hover:text-gray-700 hover:border-gray-300 text-sm border-b2" // mx-0 py-4 px-5 "
 let activeClassName = "border-black border-b text-sm cursor-default"
@@ -58,22 +61,18 @@ rounded-b-md ring-1 ring-black ring-opacity-5 bg-white p-5  border-gray-200
               ->getOrErrorPage
             | Publications =>
               let config: config = {template: "citation-mla", lang: "en-us"}
-              // Js.log(papers)
-              let citation = citeMultiple([
-                "@article{1stlt2014hazing,
-  title={Hazing Versus Challenging},
-  author={Brooks, Ethan},
-  journal={Marine Corps Gazette},
-  volume={98},
-  number={8},
-  pages={24--25},
-  year={2014},
-  publisher={Marine Corps Association \& Foundation}
-}",
-              ])
-              let formatted = citation->format("bibliography", config)
+              <ul className="divide-y divide-gray-200">
+                {papers
+                ->citeBib
+                ->Js.Array.from
+                ->Array.map(cite)
+                ->Array.map(citation => citation->format("bibliography", config))
+                ->Array.mapWithIndex((i, citation) =>
+                  <li key={i->Int.toString}> <p> {citation->React.string} </p> </li>
+                )
+                ->React.array}
+              </ul>
 
-              <p> {formatted->React.string} </p>
             | Projects =>
               rawProjects
               ->projects_decode
