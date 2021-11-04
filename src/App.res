@@ -12,9 +12,11 @@ type citation
 @send external format: (citation, string, config) => string = "format"
 @module external papers: string = "./papers.bib"
 
-let navItemClassName = "hover:text-gray-700 hover:border-gray-300 text-sm border-b2" // mx-0 py-4 px-5 "
+let navItemClassName = "hover:text-gray-700 hover:border-gray-300 text-sm border-b2"
 let activeClassName = "border-black border-b text-sm cursor-default"
 let inactiveClassName = "border-transparent hover:border-gray-700 hover:text-gray-800 border-b text-sm"
+let divideClassName = "divide-y divide-gray-200"
+let padding = "p-5"
 
 let removeUnderscore = Js.String.replace("_", " ")
 
@@ -44,31 +46,34 @@ let make = (): React.element => {
       <div className="flex flex-row flex-grow items-center">
         <div>
           <h1
-            className="rounded-t-md ring-black ring-opacity-5 bg-white p-5  border-gray-200 
+            className={`rounded-t-md ring-black ring-opacity-5 bg-white border-gray-200 
              text-3xl font-bold leading-tight text-gray-900
-             ">
+             ${padding}
+             `}>
             {url.hash->removeUnderscore->React.string}
           </h1>
           <div
             className="
-rounded-b-md ring-1 ring-black ring-opacity-5 bg-white p-5  border-gray-200
+rounded-b-md ring-1 ring-black ring-opacity-5 bg-white  border-gray-200
 ">
             {switch route {
             | Interests =>
               rawInterests
               ->interests_decode
-              ->Result.map(interests => <p> {interests->React.string} </p>)
+              ->Result.map(interests => <p className=padding> {interests->React.string} </p>)
               ->getOrErrorPage
             | Publications =>
               let config: config = {template: "citation-mla", lang: "en-us"}
-              <ul className="divide-y divide-gray-200">
+              <ul className=divideClassName>
                 {papers
                 ->citeBib
                 ->Js.Array.from
                 ->Array.map(cite)
                 ->Array.map(citation => citation->format("bibliography", config))
                 ->Array.mapWithIndex((i, citation) =>
-                  <li key={i->Int.toString}> <p> {citation->React.string} </p> </li>
+                  <li key={i->Int.toString}>
+                    <p className=padding> {citation->React.string} </p>
+                  </li>
                 )
                 ->React.array}
               </ul>
@@ -77,16 +82,13 @@ rounded-b-md ring-1 ring-black ring-opacity-5 bg-white p-5  border-gray-200
               rawProjects
               ->projects_decode
               ->Result.map(projects =>
-                <ul className="divide-y divide-gray-200">
+                <ul className=divideClassName>
                   {projects
                   ->Array.mapWithIndex((i, {title, startDate, endDate, description}) =>
                     <li key={i->Int.toString}>
-                      <div className="flex flex-col">
+                      <div className={`flex flex-col ${padding}`}>
                         <div className="flex flex-row py-2">
-                          <h2
-                            className="
-                          text-lg leading-6 font-medium text-gray-900
-                          flex-grow">
+                          <h2 className="text-lg leading-6 font-medium text-gray-900 flex-grow">
                             {title->React.string}
                           </h2>
                           <p> {startDate->React.string} </p>
@@ -105,15 +107,15 @@ rounded-b-md ring-1 ring-black ring-opacity-5 bg-white p-5  border-gray-200
               rawEducation
               ->education_decode
               ->Result.map(degrees =>
-                <ul className="divide-y divide-gray-200">
+                <ul className=divideClassName>
                   {degrees
                   ->Array.mapWithIndex((
                     i,
                     {institution, degree, info, startDate, endDate, location},
                   ) =>
                     <li key={i->Int.toString}>
-                      <div className="flex flex-col">
-                        <div className="flex flex-row py-2">
+                      <div className={`flex flex-col ${padding}`}>
+                        <div className="flex flex-row">
                           <h2
                             className="
                           text-lg leading-6 font-medium text-gray-900
@@ -139,12 +141,12 @@ rounded-b-md ring-1 ring-black ring-opacity-5 bg-white p-5  border-gray-200
               rawReading
               ->reading_decode
               ->Result.map(books =>
-                <ul className="divide-y divide-gray-200">
+                <ul className=divideClassName>
                   {books
                   ->Array.mapWithIndex((i, {title, author, translator, link}) =>
                     <li key={i->Int.toString}>
-                      <div className="flex flex-col">
-                        <div className="flex flex-row py-2 space-x-4">
+                      <div className={`flex flex-col ${padding}`}>
+                        <div className="flex flex-row space-x-4">
                           <h2
                             className="
                           text-lg leading-6 font-medium text-gray-900
