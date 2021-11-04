@@ -7,6 +7,7 @@ type t
 @new @module external citeSingle: string => t = "citation-js"
 @new @module external citeMultiple: array<string> => t = "citation-js"
 @send external format: (t, string, config) => string = "format"
+// @module external papers: string = "./papers.bib"
 
 let navItemClassName = "hover:text-gray-700 hover:border-gray-300 text-sm border-b2" // mx-0 py-4 px-5 "
 let activeClassName = "border-black border-b text-sm cursor-default"
@@ -27,14 +28,14 @@ let make = (): React.element => {
     <div className="flex flex-col p-10 max-w-prose h-screen">
       <nav className="flex flex-row flex-wrap justify-between">
         {Route.array
-        ->Array.mapWithIndex((i, r) =>
+        ->Array.mapWithIndex((i, r) => {
           <a
             key={i->Int.toString}
             href={`#${r->Route.toString}`}
             className={r == route ? activeClassName : inactiveClassName}>
             {r->Route.toString->removeUnderscore->React.string}
           </a>
-        )
+        })
         ->React.array}
       </nav>
       <div className="flex flex-row flex-grow items-center">
@@ -57,6 +58,7 @@ rounded-b-md ring-1 ring-black ring-opacity-5 bg-white p-5  border-gray-200
               ->getOrErrorPage
             | Publications =>
               let config: config = {template: "citation-mla", lang: "en-us"}
+              // Js.log(papers)
               let citation = citeMultiple([
                 "@article{1stlt2014hazing,
   title={Hazing Versus Challenging},

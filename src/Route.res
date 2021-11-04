@@ -1,8 +1,6 @@
 type route = Interests | Publications | Projects | Education | WorkExperience | Reading | Invalid
 let array = [Interests, Publications, Projects, Education, WorkExperience, Reading]
 
-let removeUnderscore = Js.String.replace("_", " ")
-
 let fromString = (string: string): route =>
   switch string {
   | "Interests" => Interests
@@ -10,7 +8,7 @@ let fromString = (string: string): route =>
   | "Projects" => Projects
   | "Education" => Education
   | "Work_Experience" => WorkExperience
-  | "Reading" => Reading
+  | "Currently_Reading" => Reading
   | _ => Invalid
   }
 
@@ -21,6 +19,6 @@ let toString = (route: route): string =>
   | Projects => "Projects"
   | Education => "Education"
   | WorkExperience => "Work_Experience"
-  | Reading => "Reading"
+  | Reading => "Currently_Reading"
   | Invalid => "Invalid"
   }
