@@ -58,6 +58,10 @@ let make = (): React.element => {
             </h1>
           | Invalid =>
             <h1 className={`rounded-md ${h1ClassName}`}> {"Page not found."->React.string} </h1>
+          | AboutMe =>
+            <h1 className={`rounded-t-md border-b ${h1ClassName}`}>
+              {`${route->Route.toString} Ethan`->React.string}
+            </h1>
           | _ =>
             <h1 className={`rounded-t-md border-b ${h1ClassName}`}>
               {route->Route.toString->React.string}
