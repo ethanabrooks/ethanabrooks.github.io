@@ -65,7 +65,8 @@ let make = (): React.element => {
         ->React.array}
       </nav>
       <div className={route == Home ? "" : "flex flex-row justify-between flex-grow  items-center"}>
-        <div>
+        <div
+          className={route == Home ? "" : "bg-white ring-black border border-gray-300 rounded-md"}>
           {
             let inputRef = headerRef->ReactDOM.Ref.domRef
             switch route {
@@ -82,7 +83,7 @@ let make = (): React.element => {
             | _ => <Header inputRef> {route->Route.toString->React.string} </Header>
             }
           }
-          <div className="rounded-b-md ring-black ring-opacity-5 bg-white  border-gray-200">
+          <div>
             {
               let inputRef = ReactDOM.Ref.domRef(bodyRef)
               switch route {
