@@ -3,4 +3,7 @@
 
 @react.component
 let make = (~inputRef) =>
-  <div ref=inputRef className=Tailwind.divideClassName> {about->parseHtml} </div>
+  <div ref=inputRef className=Tailwind.divideClassName>
+    <div className="p-5 space-y-3"> {about->parseHtml} </div>
+    <div className="p-5 space-y-3"> {about->parseHtml} </div>
+  </div>

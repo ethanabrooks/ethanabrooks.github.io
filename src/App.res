@@ -78,7 +78,7 @@ let make = (): React.element => {
                 <p className="block text-gray-700"> {"Natural Language"->React.string} </p>
               </h1>
             | Invalid => <Header inputRef> {"Page not found."->React.string} </Header>
-            | About => <Header inputRef> {`${route->Route.toString} Ethan`->React.string} </Header>
+            | About => <Header inputRef> {`About Ethan`->React.string} </Header>
             | _ => <Header inputRef> {route->Route.toString->React.string} </Header>
             }
           }

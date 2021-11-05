@@ -3,7 +3,7 @@ let array = [Home, About, Publications, Projects, Education, WorkExperience, Rea
 
 let fromString = (string: string): route =>
   switch string {
-  | "About" => About
+  | "About / Contact" => About
   | "Publications" => Publications
   | "Projects" => Projects
   | "Education" => Education
@@ -17,7 +17,7 @@ let fromString = (string: string): route =>
 
 let toString = (route: route): string =>
   switch route {
-  | About => "About"
+  | About => "About / Contact"
   | Publications => "Publications"
   | Projects => "Projects"
   | Education => "Education"
