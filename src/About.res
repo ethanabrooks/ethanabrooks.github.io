@@ -24,7 +24,10 @@ let make = (~inputRef) =>
           />
         </svg>
       </a>
-      <a href="mailto:ethanbro@umich.edu" target="_blank" className="flex flex-row space-x-2">
+      <a
+        href="https://username.github.io/CV.pdf"
+        target="_blank"
+        className="flex flex-row space-x-2">
         <p> {"CV"->React.string} </p>
       </a>
       <a href="mailto:ethanbro@umich.edu" className="flex flex-row space-x-2">
