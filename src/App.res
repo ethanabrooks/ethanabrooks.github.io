@@ -37,18 +37,27 @@ let make = (): React.element => {
       (),
     )}>
     <div id="background2" className="flex flex-col p-10 sm:w-3/5 xl:w-1/2 3xl:w-1/3 h-screen">
-      <nav id="nav" className="flex flex-col sm:flex-row flex-wrap justify-between sm:space-x-4">
-        {Route.array
-        ->Array.keep(r => r != Home)
-        ->Array.mapWithIndex((i, r) => {
-          <a
-            key={i->Int.toString}
-            href={`#${r->Route.toString->Js.Global.encodeURI}`}
-            className={r == route ? Tailwind.activeClassName : Tailwind.inactiveClassName}>
-            {r->Route.toString->React.string}
-          </a>
-        })
-        ->React.array}
+      <nav
+        id="nav"
+        // className="flex flex-col sm:grid-cols2 md:flex-row flex-wrap justify-between sm:space-x-4">
+        className="flex flex-col 
+        sm:grid sm:grid-rows-2 sm:grid-flow-col 
+lg:flex lg:flex-row lg:flex-wrap lg:justify-between lg:space-x-4
+        ">
+        {
+          //  md:flex-row md:flex-wrap md:justify-between md:space-x-4">
+          Route.array
+          ->Array.keep(r => r != Home)
+          ->Array.mapWithIndex((i, r) => {
+            <a
+              key={i->Int.toString}
+              href={`#${r->Route.toString->Js.Global.encodeURI}`}
+              className={r == route ? Tailwind.activeClassName : Tailwind.inactiveClassName}>
+              {r->Route.toString->React.string}
+            </a>
+          })
+          ->React.array
+        }
       </nav>
       <div className={route == Home ? "" : "flex flex-row justify-between flex-grow  items-center"}>
         <div>
