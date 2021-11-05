@@ -11,19 +11,27 @@ external removeEventListener: (string, ReactEvent.Mouse.t => unit) => unit = "re
 let make = (): React.element => {
   let url = RescriptReactRouter.useUrl()
   let route = url.hash->Js.Global.decodeURI->Route.fromString
+  let navRef = React.useRef(Js.Nullable.null)
   let bodyRef = React.useRef(Js.Nullable.null)
   let headerRef = React.useRef(Js.Nullable.null)
 
   React.useEffect(() => {
     let clickHandler = event => {
-      switch (headerRef.current->Js.Nullable.toOption, bodyRef.current->Js.Nullable.toOption) {
-      | (Some(header), Some(body)) =>
-        let mouseTarget = event->target
-        if !(header->contains(mouseTarget) || body->contains(mouseTarget)) {
+      [navRef.current, headerRef.current, bodyRef.current]
+      ->Array.map(Js.Nullable.toOption)
+      ->Array.reduce(None, (soFar, new) =>
+        switch (soFar, new) {
+        | (_, None) => None
+        | (None, Some(x)) => [x]->Some
+        | (Some(x), Some(y)) => x->Array.concat([y])->Some
+        }
+      )
+      ->Option.map(refs =>
+        if !(refs->Array.map(ref => ref->contains(event->target))->Array.some(b => b)) {
           `#${Home->Route.toString}`->RescriptReactRouter.push
         }
-      | _ => ()
-      }
+      )
+      ->ignore
     }
     let evt = "mousedown"
     evt->addEventListener(clickHandler)
@@ -38,6 +46,7 @@ let make = (): React.element => {
     )}>
     <div id="background2" className="flex flex-col p-10 sm:w-3/5 xl:w-1/2 3xl:w-1/3 h-screen">
       <nav
+        ref={navRef->ReactDOM.Ref.domRef}
         id="nav"
         // className="flex flex-col sm:grid-cols2 md:flex-row flex-wrap justify-between sm:space-x-4">
         className="flex flex-col 
@@ -51,6 +60,7 @@ lg:flex lg:flex-row lg:flex-wrap lg:justify-between lg:space-x-4
           ->Array.mapWithIndex((i, r) => {
             <a
               key={i->Int.toString}
+              ref={navRef->ReactDOM.Ref.domRef}
               href={`#${r->Route.toString->Js.Global.encodeURI}`}
               className={r == route ? Tailwind.activeClassName : Tailwind.inactiveClassName}>
               {r->Route.toString->React.string}
