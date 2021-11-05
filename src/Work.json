@@ -18,9 +18,21 @@
             "Machine Learning"
         ],
         "role": "Intern with Android Location and Context Team",
-        "description": "Used machine learning to determine the most battery-eﬀicient times for Android location scans.",
+        "description": "Used machine learning to determine the most battery-efficient times for Android location scans.",
         "location": "Mountain View, CA",
         "startDate": "Summer 2017"
+    },
+    {
+        "institution": "Georgia Tech Research Institute",
+        "keywords": [
+            "Robotics",
+            "Gazebo",
+            "Reinforcement Learning"
+        ],
+        "role": "Research Intern",
+        "description": "Applied reinforcement learning to quad-copter navigation. Developed system for running multiple headless Gazebo processes in parallel.",
+        "location": "Atlanta, GA",
+        "startDate": "Spring 2017"
     },
     {
         "institution": "Apple",
