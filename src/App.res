@@ -48,8 +48,8 @@ let make = (): React.element => {
         ref={navRef->ReactDOM.Ref.domRef}
         className="
         flex flex-col 
-        sm:grid sm:grid-rows-2 sm:grid-flow-col 
-        lg:flex lg:flex-row lg:flex-wrap lg:justify-between lg:space-x-4
+        sm:grid sm:grid-rows-2 sm:grid-flow-col sm:gap-x-14
+        lg:flex lg:flex-row lg:flex-wrap lg:justify-between lg:gap-x-4
         ">
         {Route.array
         ->Array.keep(r => r != Home)
