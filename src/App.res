@@ -38,7 +38,7 @@ let make = (): React.element => {
     Some(_ => evt->removeEventListener(clickHandler))
   })->ignore
   <div
-    className="w-screen h-screen bg-center bg-cover"
+    className="w-screen h-screen bg-top bg-cover"
     style={ReactDOM.Style.make(
       ~backgroundImage=`url('https://github.com/ethanabrooks/ethanabrooks.github.io/blob/master/static/portrait.png?raw=true')`,
       (),
