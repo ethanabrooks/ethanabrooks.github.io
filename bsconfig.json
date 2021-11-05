@@ -21,7 +21,8 @@
   "namespace": true,
   "bs-dependencies": [
     "@rescript/react",
-    "decco"
+    "decco",
+    "bs-webapi"
   ],
   "ppx-flags": [
     "decco/ppx"

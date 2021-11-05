@@ -10,6 +10,8 @@ S /Users/ethanbrooks/ethanabrooks.github.io/node_modules/@rescript/react/lib/oca
 B /Users/ethanbrooks/ethanabrooks.github.io/node_modules/@rescript/react/lib/ocaml
 S /Users/ethanbrooks/ethanabrooks.github.io/node_modules/decco/lib/ocaml
 B /Users/ethanbrooks/ethanabrooks.github.io/node_modules/decco/lib/ocaml
+S /Users/ethanbrooks/ethanabrooks.github.io/node_modules/bs-webapi/lib/ocaml
+B /Users/ethanbrooks/ethanabrooks.github.io/node_modules/bs-webapi/lib/ocaml
 S src
 B lib/bs/src
 ####BSB GENERATED: NO EDIT}

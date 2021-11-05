@@ -1,10 +1,9 @@
-type route =
-  AboutMe | Publications | Projects | Education | WorkExperience | Reading | Invalid | Home
-let array = [Home, AboutMe, Publications, Projects, Education, WorkExperience, Reading]
+type route = About | Publications | Projects | Education | WorkExperience | Reading | Invalid | Home
+let array = [Home, About, Publications, Projects, Education, WorkExperience, Reading]
 
 let fromString = (string: string): route =>
   switch string {
-  | "About" => AboutMe
+  | "About" => About
   | "Publications" => Publications
   | "Projects" => Projects
   | "Education" => Education
@@ -18,7 +17,7 @@ let fromString = (string: string): route =>
 
 let toString = (route: route): string =>
   switch route {
-  | AboutMe => "About"
+  | About => "About"
   | Publications => "Publications"
   | Projects => "Projects"
   | Education => "Education"
