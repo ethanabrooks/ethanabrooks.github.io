@@ -8,7 +8,7 @@ let fromString = (string: string): route =>
   | "Projects" => Projects
   | "Education" => Education
   | "Work Experience" => WorkExperience
-  | "Books I'm Reading" => Reading
+  | "Currently Reading" => Reading
   | "Home"
   | "" =>
     Home
@@ -22,7 +22,7 @@ let toString = (route: route): string =>
   | Projects => "Projects"
   | Education => "Education"
   | WorkExperience => "Work Experience"
-  | Reading => "Books I'm Reading"
+  | Reading => "Currently Reading"
   | Invalid => "Invalid"
   | Home => "Home"
   }
