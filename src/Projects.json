@@ -45,7 +45,7 @@
         ],
         "startDate": "2019",
         "description": "Study of distributed learning of off-policy value-functions.",
-        "link": "https://www.overleaf.com/read/kbhwztqhmmfg/"
+        "link": "https://ethanabrooks.github.io/speedup.pdf"
     },
     {
         "title": "Reproduction of \"Exploration in Policy Mirror Descent\"",
@@ -54,7 +54,7 @@
             "Optimization"
         ],
         "description": "Reproducibility study",
-        "link": "https://www.overleaf.com/read/rqbmhmxjyqvd/",
+        "link": "https://ethanabrooks.github.io/reproduction.pdf",
         "startDate": "2019"
     },
     {

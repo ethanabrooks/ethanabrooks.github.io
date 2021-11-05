@@ -4,6 +4,7 @@
 /dev/main.css
 /dist/*.json
 /dist/*.png
+/dist/*.pdf
 /dist/main.css
 /dist/main.js
 /lib/
