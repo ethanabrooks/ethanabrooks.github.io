@@ -36,7 +36,7 @@ let make = (): React.element => {
       ~backgroundImage=`url('https://github.com/ethanabrooks/ethanabrooks.github.io/blob/master/static/portrait.png?raw=true')`,
       (),
     )}>
-    <div id="background2" className="flex flex-col p-10 sm:w-3/5 xl:w-1/2 3xl:w-2/5 h-screen">
+    <div id="background2" className="flex flex-col p-10 sm:w-3/5 xl:w-1/2 3xl:w-1/3 h-screen">
       <nav id="nav" className="flex flex-col sm:flex-row flex-wrap justify-between sm:space-x-4">
         {Route.array
         ->Array.keep(r => r != Home)
@@ -57,7 +57,7 @@ let make = (): React.element => {
             switch route {
             | Home =>
               <h1
-                className="text-xl sm:text-3xl tracking-tight sm:py-10 2xl:py-8 3xl:text-4xl 3xl:flex 3xl:flex-row 3xl:flex-1 3xl:justify-between">
+                className="text-xl sm:text-2xl tracking-tight sm:py-10 2xl:py-8 3xl:flex 3xl:flex-row 3xl:flex-1 3xl:justify-between">
                 <p className="block"> {"Ethan A. Brooks"->React.string} </p>
                 <p className="block text-gray-700"> {"Researcher"->React.string} </p>
                 <p className="block text-gray-700"> {"Reinforcement Learning"->React.string} </p>
