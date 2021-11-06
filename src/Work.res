@@ -38,7 +38,7 @@ let make = (~inputRef) =>
               </>)}
             </div>
             <p className=Tailwind.liPrimaryClassName> {role->React.string} </p>
-            <p className=Tailwind.liSecondaryClassName> {description->React.string} </p>
+            <p className=Tailwind.liSecondaryClassName> {description->Util.parseHtml} </p>
           </div>
         </li>
       )
