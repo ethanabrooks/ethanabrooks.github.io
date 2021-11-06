@@ -7,7 +7,7 @@
             "Deep RL"
         ],
         "role": "Research Engineer under Satinder Singh",
-        "description": "<span>Applied reinforcement learning to simulated robotic grasping using MuJoCo.</span> <a target=\"_blank\" href=\"https://www.youtube.com/watch?v=EjhcR-CealU\"/>Click for video.</a>",
+        "description": "<span>Developed robotics simulations using MuJoCo simulation software and applied on-policy and off-policy reinforcement learning algorithms in order to master navigation and grasping tasks. </span> <a target=\"_blank\" href=\"https://www.youtube.com/watch?v=EjhcR-CealU\"/>Click for video.</a>",
         "location": "Ann Arbor, MI",
         "startDate": "Fall 2017"
     },
@@ -18,7 +18,7 @@
             "Machine Learning"
         ],
         "role": "Intern with Android Location and Context Team",
-        "description": "Used machine learning to determine the most battery-efficient times for Android location scans.",
+        "description": "Applied machine learning to battery optimization in Android devices.",
         "location": "Mountain View, CA",
         "startDate": "Summer 2017"
     },
@@ -30,7 +30,7 @@
             "Reinforcement Learning"
         ],
         "role": "Research Intern",
-        "description": "Applied reinforcement learning to quad-copter navigation. Developed system for running multiple headless Gazebo processes in parallel.",
+        "description": "Worked on applying policy-gradient algorithms and other reinforcement learning techniques to the problem of quadcopter navigation. Developed a system for running multiple headless Gazebo processes in parallel.",
         "location": "Atlanta, GA",
         "startDate": "Spring 2017"
     },
@@ -41,7 +41,7 @@
             "Deep Learning"
         ],
         "role": "Intern with Siri Natural Language Team",
-        "description": "Built attention-based deep learning algorithms in Torch to improve sentence classification.",
+        "description": "Worked on machine learning techniques for deriving meaning from user utterances.",
         "location": "Cupertino, CA",
         "startDate": "Summer 2016"
     },
@@ -49,7 +49,7 @@
         "institution": "United States Marine Corps",
         "keywords": [],
         "role": "Intelligence Officer (Rank: Captain)",
-        "description": "Established a new intelligence section that oversaw intelligence analysis and security management.",
+        "description": "Led the intelligence section at a Marine Corps Logistics Battalion, mentoring the Marines who worked with me, developing new capabilities within the section, and planning battalion training in conjunction with adjacent sections.",
         "startDate": "2010",
         "endDate": "2015"
     }
