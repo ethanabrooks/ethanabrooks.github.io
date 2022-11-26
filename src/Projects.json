@@ -1,28 +1,14 @@
 [
     {
-        "title": "Current Research",
+        "title": "Dollar Lambda",
         "keywords": [
-            "Deep RL",
-            "Multi-task RL",
-            "GPT-2",
-            "NLP"
+            "Python",
+            "Argument Parser",
+            "Parser Combinator"
         ],
-        "startDate": "2020",
-        "endDate": "ongoing",
-        "description": "Exploring applications of pretrained Foundation Models (e.g. GPT-2) to reinforcement learning. In particular, studying the psychological phenomenon of “internal monologue” in terms of utility.Currently investigating problems relating to generalization, hierarchy, and exploration. (In collaboration with Logan Walls, Richard Lewis, and Satinder Singh.)"
-    },
-    {
-        "title": "DARPA L2M Grant",
-        "keywords": [
-            "Deep RL",
-            "Multi-task RL",
-            "Jax",
-            "Pytorch",
-            "Docker"
-        ],
-        "startDate": "2020",
-        "endDate": "ongoing",
-        "description": "Application of lifelong reinforcement learning algorithms to the Habitat AI simulation platform"
+        "startDate": "2021",
+        "endDate": "2021",
+        "description": "An alternative to argparse based on parser combinators and functional first principles."
     },
     {
         "title": "Run Tracker",
@@ -36,26 +22,6 @@
         "startDate": "2021",
         "description": "Utilities for launching hyperparameter sweeps, logging metadata, and visualizing runs",
         "link": "https://github.com/run-tracker/"
-    },
-    {
-        "title": "Off-Policy RL that Prioritizes Value Function Improvement for Speedup",
-        "keywords": [
-            "Deep RL",
-            "Off-policy RL"
-        ],
-        "startDate": "2019",
-        "description": "Study of distributed learning of off-policy value-functions.",
-        "link": "https://ethanabrooks.github.io/speedup.pdf"
-    },
-    {
-        "title": "Reproduction of \"Exploration in Policy Mirror Descent\"",
-        "keywords": [
-            "Deep RL",
-            "Optimization"
-        ],
-        "description": "Reproducibility study",
-        "link": "https://ethanabrooks.github.io/reproduction.pdf",
-        "startDate": "2019"
     },
     {
         "title": "Python MuJoCo Wrapper",

@@ -1,5 +1,17 @@
 [
     {
+        "institution": "DeepMind",
+        "keywords": [
+            "Deep RL",
+            "Foundation Models",
+            "In-context Learning"
+        ],
+        "role": "Research Intern under Volodymyr Mnih",
+        "description": "Performed research into in-context learning of world models for reinforcement learning.",
+        "location": "London, UK",
+        "startDate": "Fall 2022"
+    },
+    {
         "institution": "University of Michigan",
         "keywords": [
             "MuJoCo",
