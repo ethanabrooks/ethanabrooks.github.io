@@ -4,7 +4,7 @@
   "description": "My personal website",
   "type": "module",
   "engines": {
-    "node": ">=14.0"
+    "node": ">=18.0"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "transformers": {
@@ -47,7 +47,6 @@
     "@types/node": "^20.5.0",
     "bs-fetch": "^0.6.2",
     "decco": "^1.6.0",
-    "nodemon": "^3.0.1",
     "parcel": "^2.10.3",
     "prettier": "^3.0.0",
     "prisma": "^5.1.1",
