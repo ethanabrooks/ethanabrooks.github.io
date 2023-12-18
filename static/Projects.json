@@ -8,7 +8,8 @@
         ],
         "startDate": "2021",
         "endDate": "2021",
-        "description": "An alternative to argparse based on parser combinators and functional first principles."
+        "description": "An alternative to argparse based on parser combinators and functional first principles.",
+        "link": "https://dollar-lambda.readthedocs.io/en/latest/"
     },
     {
         "title": "Run Tracker",
