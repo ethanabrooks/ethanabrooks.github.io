@@ -18,7 +18,7 @@
   "scripts": {
     "rescript": "rescript build -with-deps",
     "rescript-w": "rescript build -with-deps -w",
-    "tailwind": "tailwindcss -i ./src/input.css -o ./dist/output.css",
+    "tailwind": "tailwindcss -i ./src/input.css -o ./lib/output.css",
     "tailwind-w": "yarn tailwind -w",
     "parcel-build": "parcel build index.html",
     "parcel": "parcel index.html",
