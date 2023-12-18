@@ -6,10 +6,11 @@ type entry
 type entries = Js.Array.array_like<entry>
 
 type citation
-@new @module external citeBib: string => entries = "@citation-js/plugin-bibtex"
-@new @module external cite: entry => citation = "@citation-js/plugin-bibtex"
+@new @module external citeBib: string => entries = "citation-js"
+@new @module external cite: entry => citation = "citation-js"
 @send external format: (citation, string, config) => string = "format"
 @module external papers: string = "bundle-text:/static/papers.bib"
+// Binding to the '@citation-js/core' module
 
 @react.component
 let make = (~inputRef) => {
