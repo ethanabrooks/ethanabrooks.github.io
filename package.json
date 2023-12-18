@@ -20,8 +20,8 @@
     "rescript-w": "rescript build -with-deps -w",
     "tailwind": "tailwindcss -i ./src/input.css -o ./dist/output.css",
     "tailwind-w": "yarn tailwind -w",
-    "parcel": "parcel build index.html",
-    "parcel-w": "parcel index.html",
+    "parcel-build": "parcel build index.html",
+    "parcel": "parcel index.html",
     "clean": "rescript clean && rm -rf dist && rm -rf node_modules",
     "build": "yarn rescript && yarn tailwind && yarn parcel-build"
   },
