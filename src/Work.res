@@ -41,8 +41,8 @@ let make = (~inputRef) =>
                 </>,
               )}
             </div>
-            <p className=Tailwind.liPrimaryClassName> {role->Util.parseMd} </p>
-            <p className=Tailwind.liSecondaryClassName> {description->Util.parseMd} </p>
+            <div className=Tailwind.liPrimaryClassName> {role->Util.parseMd} </div>
+            <div className=Tailwind.liSecondaryClassName> {description->Util.parseMd} </div>
           </div>
         </li>
       )

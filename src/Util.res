@@ -9,7 +9,6 @@ let getOrErrorPage = (res: deccoResult<React.element>) =>
   }
 
 let parseMd = (mdString: string) => {
-  Js.log(mdString)
   ReactDOM.createDOMElementVariadic(
     "div",
     ~props={dangerouslySetInnerHTML: {"__html": mdString->marked}},
