@@ -570,6 +570,15 @@
     "@parcel/events" "2.10.3"
     chrome-trace-event "^1.0.2"
 
+"@parcel/reporter-bundle-analyzer@^2.10.3":
+  version "2.10.3"
+  resolved "https://registry.yarnpkg.com/@parcel/reporter-bundle-analyzer/-/reporter-bundle-analyzer-2.10.3.tgz#568c2b67e0ec8611ce85685f9f0df17f1af468a9"
+  integrity sha512-cl1YTHvwU1nMUr94sl0f8ZiJ5hwHjaRobluPJK2jSkfLVflideIFWupuzNANpuWKeE8mlXNp8DUVgi3YpVXUMA==
+  dependencies:
+    "@parcel/plugin" "2.10.3"
+    "@parcel/utils" "2.10.3"
+    nullthrows "^1.1.1"
+
 "@parcel/reporter-cli@2.10.3":
   version "2.10.3"
   resolved "https://registry.yarnpkg.com/@parcel/reporter-cli/-/reporter-cli-2.10.3.tgz#c7942c56b4d66701b7776c0fe4aca4ce0793fed1"

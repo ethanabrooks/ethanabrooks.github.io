@@ -17,16 +17,16 @@
     "rescript-w": "rescript build -with-deps -w",
     "tailwind": "tailwindcss -i ./src/input.css -o ./dist/output.css",
     "tailwind-w": "tailwindcss -w -i ./src/input.css -o ./dist/output.css",
-    "parcel": "parcel build index.html",
-    "parcel-w": "parcel ./src/index.html",
-    "tsc": "tsc",
-    "tsc-w": "tsc -w",
-    "clean": "rm -rf lib dist databases/form/client databases/inferences/client",
-    "build": "yarn rescript && yarn tailwind && yarn parcel && yarn tsc"
+    "parcel-build": "parcel build index.html --reporter @parcel/reporter-bundle-analyzer",
+    "parcel-build-w": "parcel ./src/index.html",
+    "clean": "rescript clean && rm -rf dist && rm -rf node_modules",
+    "build": "yarn rescript && yarn tailwind && yarn parcel-build",
+    "parcel": "parcel index.html"
   },
   "author": "Ethan Brooks",
   "license": "MIT",
   "dependencies": {
+    "@citation-js/plugin-bibtex": "^0.7.2",
     "@glennsl/bs-json": "^5.0.4",
     "@prisma/client": "5.1.1",
     "@rescript/core": "*",
@@ -38,6 +38,7 @@
     "rescript": "^10.1.4"
   },
   "devDependencies": {
+    "@parcel/reporter-bundle-analyzer": "^2.10.3",
     "@parcel/transformer-inline-string": "2.10.3",
     "@rescript/react": "^0.11.0",
     "@types/node": "^20.5.0",
