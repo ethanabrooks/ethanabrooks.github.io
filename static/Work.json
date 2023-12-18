@@ -1,5 +1,16 @@
 [
     {
+        "institution": "Microsoft",
+        "keywords": [
+            "Large Language Models",
+            "Games"
+        ],
+        "role": "Research Intern under Nebojsa Jojic",
+        "description": "Developed games using LLMs and methods for eliciting errors from LLMs",
+        "location": "Redmond, WA",
+        "startDate": "Summer 2023"
+    },
+    {
         "institution": "DeepMind",
         "keywords": [
             "Deep RL",

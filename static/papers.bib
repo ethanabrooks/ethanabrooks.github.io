@@ -1,38 +1,50 @@
+@inproceedings{brooks2021reinforcement,
+  title={Reinforcement learning of implicit and explicit control flow instructions},
+  author={Brooks, Ethan and Rajendran, Janarthanan and Lewis, Richard L and Singh, Satinder},
+  booktitle={International Conference on Machine Learning},
+  pages={1082--1091},
+  year={2021},
+  organization={PMLR}
+}
 
-@article{brooks2022context,
-  title={In-Context Policy Iteration},
-  author={Brooks, Ethan and Walls, Logan and Lewis, Richard L and Singh, Satinder},
-  journal={arXiv preprint arXiv:2210.03821},
-  year={2022}
+@inproceedings{
+anonymous2023large,
+title={Large Language Models can Implement Policy Iteration},
+author={Ethan Brooks and Logan Walls and Richard L. Lewis and Satinder Singh},
+booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
+year={2023},
+url={https://openreview.net/forum?id=LWxjWoBTsr}
 }
-@article{laskin2022context,
-  title={In-context Reinforcement Learning with Algorithm Distillation},
-  author={Laskin, Michael and Wang, Luyu and Oh, Junhyuk and Parisotto, Emilio and Spencer, Stephen and Steigerwald, Richie and Strouse, DJ and Hansen, Steven and Filos, Angelos and Brooks, Ethan and others},
-  journal={arXiv preprint arXiv:2210.14215},
-  year={2022}
+
+@inproceedings{
+laskin2023incontext,
+title={In-context Reinforcement Learning with Algorithm Distillation},
+author={Michael Laskin and Luyu Wang and Junhyuk Oh and Emilio Parisotto and Stephen Spencer and Richie Steigerwald and DJ Strouse and Steven Stenberg Hansen and Angelos Filos and Ethan Brooks and maxime gazeau and Himanshu Sahni and Satinder Singh and Volodymyr Mnih},
+booktitle={The Eleventh International Conference on Learning Representations },
+year={2023},
+url={https://openreview.net/forum?id=hy0a5MMPUv}
 }
-@InProceedings{pmlr-v139-brooks21a,
-  title = 	 {Reinforcement Learning of Implicit and Explicit Control Flow Instructions},
-  author =       {{\bf Brooks, Ethan} and Rajendran, Janarthanan and Lewis, Richard L and Singh, Satinder},
-  booktitle = 	 {Proceedings of the 38th International Conference on Machine Learning},
-  pages = 	 {1082--1091},
-  year = 	 {2021},
-  editor = 	 {Meila, Marina and Zhang, Tong},
-  volume = 	 {139},
-  series = 	 {Proceedings of Machine Learning Research},
-  month = 	 {18--24 Jul},
-  publisher =    {PMLR},
-  pdf = 	 {http://proceedings.mlr.press/v139/brooks21a/brooks21a.pdf},
-  url = 	 {https://proceedings.mlr.press/v139/brooks21a.html},
-  abstract = 	 {Learning to flexibly follow task instructions in dynamic environments poses interesting challenges for reinforcement learning agents. We focus here on the problem of learning control flow that deviates from a strict step-by-step execution of instructions{—}that is, control flow that may skip forward over parts of the instructions or return backward to previously completed or skipped steps. Demand for such flexible control arises in two fundamental ways: explicitly when control is specified in the instructions themselves (such as conditional branching and looping) and implicitly when stochastic environment dynamics require re-completion of instructions whose effects have been perturbed, or opportunistic skipping of instructions whose effects are already present. We formulate an attention-based architecture that meets these challenges by learning, from task reward only, to flexibly attend to and condition behavior on an internal encoding of the instructions. We test the architecture’s ability to learn both explicit and implicit control in two illustrative domains—one inspired by Minecraft and the other by StarCraft—and show that the architecture exhibits zero-shot generalization to novel instructions of length greater than those in a training set, at a performance level unmatched by three baseline recurrent architectures and one ablation architecture.}
-}
-@article{1stlt2014hazing,
-  title={Hazing Versus Challenging},
+
+@article{brooks2014hazing,
+  title={Hazing Versus Challenging: Push to a Breaking Point},
   author={Brooks, Ethan},
   journal={Marine Corps Gazette},
   volume={98},
-  number={8},
+  number={2},
   pages={24--25},
-  year={2014},
-  publisher={Marine Corps Association \& Foundation}
+  year={2014}
+}
+
+@article{baker_domain-agnostic_2023,
+	title = {A domain-agnostic approach for characterization of lifelong learning systems},
+	volume = {160},
+	issn = {0893-6080},
+	url = {https://www.sciencedirect.com/science/article/pii/S0893608023000072},
+	doi = {https://doi.org/10.1016/j.neunet.2023.01.007},
+	abstract = {Despite the advancement of machine learning techniques in recent years, state-of-the-art systems lack robustness to “real world” events, where the input distributions and tasks encountered by the deployed systems will not be limited to the original training context, and systems will instead need to adapt to novel distributions and tasks while deployed. This critical gap may be addressed through the development of “Lifelong Learning” systems that are capable of (1) Continuous Learning, (2) Transfer and Adaptation, and (3) Scalability. Unfortunately, efforts to improve these capabilities are typically treated as distinct areas of research that are assessed independently, without regard to the impact of each separate capability on other aspects of the system. We instead propose a holistic approach, using a suite of metrics and an evaluation framework to assess Lifelong Learning in a principled way that is agnostic to specific domains or system techniques. Through five case studies, we show that this suite of metrics can inform the development of varied and complex Lifelong Learning systems. We highlight how the proposed suite of metrics quantifies performance trade-offs present during Lifelong Learning system development — both the widely discussed Stability-Plasticity dilemma and the newly proposed relationship between Sample Efficient and Robust Learning. Further, we make recommendations for the formulation and use of metrics to guide the continuing development of Lifelong Learning systems and assess their progress in the future.},
+	journal = {Neural Networks},
+	author = {Baker, Megan M. and New, Alexander and Aguilar-Simon, Mario and Al-Halah, Ziad and Arnold, Sébastien M. R. and Ben-Iwhiwhu, Ese and Brna, Andrew P. and Brooks, Ethan and Brown, Ryan C. and Daniels, Zachary and Daram, Anurag and Delattre, Fabien and Dellana, Ryan and Eaton, Eric and Fu, Haotian and Grauman, Kristen and Hostetler, Jesse and Iqbal, Shariq and Kent, Cassandra and Ketz, Nicholas and Kolouri, Soheil and Konidaris, George and Kudithipudi, Dhireesha and Learned-Miller, Erik and Lee, Seungwon and Littman, Michael L. and Madireddy, Sandeep and Mendez, Jorge A. and Nguyen, Eric Q. and Piatko, Christine and Pilly, Praveen K. and Raghavan, Aswin and Rahman, Abrar and Ramakrishnan, Santhosh Kumar and Ratzlaff, Neale and Soltoggio, Andrea and Stone, Peter and Sur, Indranil and Tang, Zhipeng and Tiwari, Saket and Vedder, Kyle and Wang, Felix and Xu, Zifan and Yanguas-Gil, Angel and Yedidsion, Harel and Yu, Shangqun and Vallabha, Gautam K.},
+	year = {2023},
+	keywords = {Catastrophic forgetting, Continual learning, Lifelong learning, Reinforcement learning, System evaluation},
+	pages = {274--296},
 }

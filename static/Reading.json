@@ -1,22 +1,17 @@
 [
     {
-        "title": "Gravity's Rainbow",
-        "author": "Thomas Pynchon",
-        "link": "https://smile.amazon.com/Gravitys-Rainbow-GRAVITYS-RAINBOW-Paperback/dp/B003AWN1KQ/ref=sr_1_3?crid=1K514V0F85BBT"
+        "title": "Sodom and Gomorrah",
+        "author": "Marcel Proust",
+        "link": "https://www.amazon.com/Sodom-Gomorrah-Search-Penguin-Classics/dp/0143039318"
     },
     {
-        "title": "A Portrait of the Artist as a Young Man",
-        "author": "James Joyce",
-        "link": "https://smile.amazon.com/Portrait-Artist-Young-Wordsworth-Classics/dp/1853260061/ref=sr_1_4?keywords=a+portrait+of+the+artist+as+a+young+man"
+        "title": "The Fellowship of the Ring",
+        "author": "J.R.R. Tolkien",
+        "link": "https://www.amazon.com/The-Fellowship-of-Ring-audiobook/dp/B0099SNQYG/ref=sr_1_1?crid=YNCRBEEEPHI&keywords=fellowship+of+the+ring&qid=1702930825&s=books&sprefix=Fellowship%2Cstripbooks%2C171&sr=1-1"
     },
     {
-        "title": "The Master and His Emissary",
-        "author": "Iain McGilchrist",
-        "link": "https://smile.amazon.com/The-Master-and-His-Emissary-audiobook/dp/B07ZJQ4QG7/ref=sr_1_1?keywords=master+and+his+emissary"
-    },
-    {
-        "title": "The Golden Compass",
-        "author": "Philip Pullman",
-        "link": "https://smile.amazon.com/Golden-Compass-Dark-Materials-Book/dp/B0000W6SPE/ref=sr_1_1?keywords=the+golden+compass"
+        "title": "Metamorphoses",
+        "author": "Ovid",
+        "link": "https://www.amazon.com/Metamorphoses-Ovid-audiobook/dp/B00134DD7O/ref=sr_1_1?crid=1SSXYCF2NSLE9&keywords=metamorphoses&qid=1702930890&s=audible&sprefix=metamorphosis%2Caudible%2C219&sr=1-1"
     }
 ]
