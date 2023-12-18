@@ -10,6 +10,9 @@
   "transformers": {
     "*.bib": [
       "@parcel/transformer-raw"
+    ],
+    "*.md": [
+      "@parcel/transformer-raw"
     ]
   },
   "scripts": {

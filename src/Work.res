@@ -1,8 +1,6 @@
 module Array = Belt.Array
 @module external rawWork: Js.Json.t = "/static/Work.json"
 
-@module("marked") external marked: string => string = "marked"
-
 @decco
 type job = {
   institution: string,
@@ -16,15 +14,6 @@ type job = {
 
 @decco
 type work = array<job>
-
-let parseMd = (mdString: string) => {
-  Js.log(mdString)
-  ReactDOM.createDOMElementVariadic(
-    "div",
-    ~props={dangerouslySetInnerHTML: {"__html": mdString->marked}},
-    [],
-  )
-}
 
 @react.component
 let make = (~inputRef) =>
@@ -52,8 +41,8 @@ let make = (~inputRef) =>
                 </>,
               )}
             </div>
-            <p className=Tailwind.liPrimaryClassName> {role->parseMd} </p>
-            <p className=Tailwind.liSecondaryClassName> {description->parseMd} </p>
+            <p className=Tailwind.liPrimaryClassName> {role->Util.parseMd} </p>
+            <p className=Tailwind.liSecondaryClassName> {description->Util.parseMd} </p>
           </div>
         </li>
       )
