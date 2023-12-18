@@ -23,6 +23,7 @@
     "parcel-build": "parcel build index.html",
     "parcel": "parcel index.html",
     "clean": "rescript clean && rm -rf dist && rm -rf node_modules",
+    "serve": "http-server dist -p 8080",
     "build": "yarn rescript && yarn tailwind && yarn parcel-build"
   },
   "author": "Ethan Brooks",
@@ -48,6 +49,7 @@
     "@types/node": "^20.5.0",
     "bs-fetch": "^0.6.2",
     "decco": "^1.6.0",
+    "http-server": "^14.1.1",
     "parcel": "^2.10.3",
     "prettier": "^3.0.0",
     "prisma": "^5.1.1",
