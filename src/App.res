@@ -6,6 +6,7 @@ external addEventListener: (string, ReactEvent.Mouse.t => unit) => unit = "addEv
 external removeEventListener: (string, ReactEvent.Mouse.t => unit) => unit = "removeEventListener"
 @send external contains: (Dom.element, Dom.element) => bool = "contains"
 @get external target: ReactEvent.Mouse.t => Dom.element = "target"
+@module external background: string = "/static/portrait.png"
 
 @react.component
 let make = (): React.element => {
@@ -39,10 +40,7 @@ let make = (): React.element => {
   })->ignore
   <div
     className="w-screen h-screen bg-top bg-cover"
-    style={ReactDOM.Style.make(
-      ~backgroundImage=`url('https://github.com/ethanabrooks/ethanabrooks.github.io/blob/master/static/portrait.png?raw=true')`,
-      (),
-    )}>
+    style={ReactDOM.Style.make(~backgroundImage=`url(${background})`, ())}>
     <div className="flex flex-col p-10 sm:w-3/5 xl:w-1/2 3xl:w-1/3 h-screen">
       <nav
         ref={navRef->ReactDOM.Ref.domRef}
