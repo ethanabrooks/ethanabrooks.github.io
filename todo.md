@@ -1,3 +1,0 @@
-- host papers on site
-- highlight name in publications
-- add description section to reading list
