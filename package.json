@@ -16,12 +16,11 @@
     "rescript": "rescript build -with-deps",
     "rescript-w": "rescript build -with-deps -w",
     "tailwind": "tailwindcss -i ./src/input.css -o ./dist/output.css",
-    "tailwind-w": "tailwindcss -w -i ./src/input.css -o ./dist/output.css",
-    "parcel-build": "parcel build index.html --reporter @parcel/reporter-bundle-analyzer",
-    "parcel-build-w": "parcel ./src/index.html",
+    "tailwind-w": "yarn tailwind -w",
+    "parcel": "parcel build index.html",
+    "parcel-w": "parcel index.html",
     "clean": "rescript clean && rm -rf dist && rm -rf node_modules",
-    "build": "yarn rescript && yarn tailwind && yarn parcel-build",
-    "parcel": "parcel index.html"
+    "build": "yarn rescript && yarn tailwind && yarn parcel-build"
   },
   "author": "Ethan Brooks",
   "license": "MIT",
@@ -33,6 +32,7 @@
     "citation-js": "^0.7.4",
     "express": "^4.18.2",
     "html-react-parser": "^5.0.10",
+    "marked": "^11.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rescript": "^10.1.4"
