@@ -1,4 +1,4 @@
-@module external about: string = "./About.html"
+@module external about: string = "/static/About.html"
 
 @react.component
 let make = (~inputRef) =>

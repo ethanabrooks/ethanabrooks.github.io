@@ -1,6 +1,6 @@
-open Belt
+module Array = Belt.Array
 
-@module external rawEducation: Js.Json.t = "./Education.json"
+@module external rawEducation: Js.Json.t = "/static/Education.json"
 
 @decco
 type degree = {
@@ -35,8 +35,9 @@ let make = (~inputRef) =>
               <p> {endDate->React.string} </p>
             </div>
             <p className=Tailwind.liPrimaryClassName> {degree->React.string} </p>
-            {info->Option.mapWithDefault(<> </>, info =>
-              <p className=Tailwind.liSecondaryClassName> {info->React.string} </p>
+            {info->Option.mapOr(
+              <> </>,
+              info => <p className=Tailwind.liSecondaryClassName> {info->React.string} </p>,
             )}
           </div>
         </li>

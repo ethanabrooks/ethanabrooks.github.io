@@ -1,6 +1,6 @@
-open Belt
+module Array = Belt.Array
 
-@module external rawReading: Js.Json.t = "./Reading.json"
+@module external rawReading: Js.Json.t = "/static/Reading.json"
 
 @decco
 type book = {
@@ -28,10 +28,12 @@ let make = (~inputRef) =>
                 <h2 className=Tailwind.h2ClassName> {title->React.string} </h2>
                 <p> {author->React.string} </p>
               </div>
-              {translator->Option.mapWithDefault(<> </>, translator =>
-                <p className=Tailwind.liPrimaryClassName>
-                  {`Translated by ${translator}`->React.string}
-                </p>
+              {translator->Option.mapOr(
+                <> </>,
+                translator =>
+                  <p className=Tailwind.liPrimaryClassName>
+                    {`Translated by ${translator}`->React.string}
+                  </p>,
               )}
             </div>
           </a>

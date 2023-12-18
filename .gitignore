@@ -15,3 +15,5 @@
 .env
 node_modules
 .direnv
+dist/
+.parcel-cache/

@@ -1,42 +1,53 @@
 {
-  "name": "runs",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
-  "scripts": {
-    "clean": "bsb -clean-world",
-    "format": "prettier -w **/*.css **/*.html **/*.json **/*.scss src/**/*.js *.js",
-    "dev": "concurrently 'node server.js dev' 'yarn dev:build' 'yarn dev:bundle' 'yarn dev:css'",
-    "dev:build": "bsb -make-world -w -ws _",
-    "dev:bundle": "esbuild --loader:.bib=text --loader:.html=text --define:process.version=\\\"v14.16.0\\\" --define:process.env.NODE_ENV=\\\"production\\\"  --serve=localhost:8001 --bundle src/Index.bs.js --external:react --external:react-dom",
-    "dev:css": "postcss src/main.css -o dev/main.css",
-    "predeploy": "concurrently 'yarn predeploy:bundle' 'yarn predeploy:css' 'yarn predeploy:static'",
-    "predeploy:build": "concurrently 'yarn prod:bundle' 'yarn prod:css'",
-    "predeploy:bundle": "bsb -make-world && esbuild --loader:.bib=text --loader:.html=text --define:process.version=\\\"v14.16.0\\\" --bundle src/Index.bs.js --external:react --external:react-dom --minify --outfile=dist/main.js",
-    "predeploy:css": "NODE_ENV=production postcss src/main.css -o dist/main.css",
-    "predeploy:static": "rsync -av static/ dist/",
-    "deploy": "gh-pages --dist 'dist' --branch 'gh-pages'"
+  "name": "ethanabrooks.github.io",
+  "version": "1.0.0",
+  "description": "My personal website",
+  "type": "module",
+  "engines": {
+    "node": ">=14.0"
   },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "transformers": {
+    "*.bib": [
+      "@parcel/transformer-raw"
+    ]
+  },
+  "scripts": {
+    "rescript": "rescript build -with-deps",
+    "rescript-w": "rescript build -with-deps -w",
+    "tailwind": "tailwindcss -i ./src/input.css -o ./dist/output.css",
+    "tailwind-w": "tailwindcss -w -i ./src/input.css -o ./dist/output.css",
+    "parcel": "parcel build index.html",
+    "parcel-w": "parcel ./src/index.html",
+    "tsc": "tsc",
+    "tsc-w": "tsc -w",
+    "clean": "rm -rf lib dist databases/form/client databases/inferences/client",
+    "build": "yarn rescript && yarn tailwind && yarn parcel && yarn tsc"
+  },
+  "author": "Ethan Brooks",
+  "license": "MIT",
   "dependencies": {
-    "@rescript/react": "^0.10.3",
-    "bs-platform": "^9.0.1",
-    "bs-webapi": "^0.19.1",
-    "citation-js": "^0.5.1",
-    "decco": "^1.5.0",
-    "gh-pages": "^3.2.3",
-    "html-react-parser": "^1.4.0",
-    "jekyll": "^3.0.0-beta1",
-    "postcss": "^8.3.11",
-    "postcss-cli": "^9.0.1",
-    "prettier": "^2.2.1",
-    "react": "^17.0.2",
-    "tailwindcss": "^2.1.2"
+    "@glennsl/bs-json": "^5.0.4",
+    "@prisma/client": "5.1.1",
+    "@rescript/core": "*",
+    "citation-js": "^0.7.4",
+    "express": "^4.18.2",
+    "html-react-parser": "^5.0.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rescript": "^10.1.4"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.5",
-    "concurrently": "^5.3.0",
-    "esbuild": "^0.13.12",
-    "node-sass": "^6.0.0",
-    "reanalyze": "^2.17.0",
-    "reason-react": "^0.9.1"
+    "@parcel/transformer-inline-string": "2.10.3",
+    "@rescript/react": "^0.11.0",
+    "@types/node": "^20.5.0",
+    "bs-fetch": "^0.6.2",
+    "decco": "^1.6.0",
+    "nodemon": "^3.0.1",
+    "parcel": "^2.10.3",
+    "prettier": "^3.0.0",
+    "prisma": "^5.1.1",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.1.6"
   }
 }

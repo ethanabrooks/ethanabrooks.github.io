@@ -1,4 +1,4 @@
-open Belt
+module Array = Belt.Array
 
 @scope("document") @val
 external addEventListener: (string, ReactEvent.Mouse.t => unit) => unit = "addEventListener"

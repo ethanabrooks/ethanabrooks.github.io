@@ -1,31 +1,21 @@
 {
-  "name": "app",
-  "reason": {
-    "react-jsx": 3
-  },
+  "name": "rescript-project-template",
   "sources": {
     "dir": "src",
     "subdirs": true
   },
-  "bsc-flags": [
-    "-bs-super-errors",
-    "-bs-no-version-header"
-  ],
-  "package-specs": [
-    {
-      "module": "commonjs",
-      "in-source": true
-    }
-  ],
+  "package-specs": {
+    "module": "es6"
+  },
   "suffix": ".bs.js",
-  "namespace": true,
+  "bsc-flags": ["-open RescriptCore"],
+  "jsx": { "version": 4, "mode": "classic" },
+  "ppx-flags": [ "decco/ppx" ],
   "bs-dependencies": [
+    "@rescript/core",
     "@rescript/react",
-    "decco",
-    "bs-webapi"
-  ],
-  "ppx-flags": [
-    "decco/ppx"
-  ],
-  "refmt": 3
+    "@glennsl/bs-json",
+    "decco"
+  ]
+
 }

@@ -1,6 +1,6 @@
-open Belt
+module Array = Belt.Array
 
-@module external rawProjects: Js.Json.t = "./Projects.json"
+@module external rawProjects: Js.Json.t = "/static/Projects.json"
 
 @decco
 type project = {
@@ -28,16 +28,21 @@ let make = (~inputRef) =>
               <h2 className=Tailwind.h2ClassName> {title->React.string} </h2>
               <p> {startDate->React.string} </p>
               <p> {"-"->React.string} </p>
-              <p> {endDate->Option.getWithDefault("current")->React.string} </p>
+              <p> {endDate->Option.getOr("current")->React.string} </p>
             </div>
             <p className=Tailwind.liPrimaryClassName> {description->React.string} </p>
           </div>
         <li key={i->Int.toString}>
-          {link->Option.mapWithDefault(content, link =>
-            <a
-              key={i->Int.toString} href=link target="_blank" className=Tailwind.clickableClassName>
-              {content}
-            </a>
+          {link->Option.mapOr(
+            content,
+            link =>
+              <a
+                key={i->Int.toString}
+                href=link
+                target="_blank"
+                className=Tailwind.clickableClassName>
+                {content}
+              </a>,
           )}
         </li>
       })
