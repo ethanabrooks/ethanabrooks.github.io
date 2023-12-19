@@ -32,11 +32,9 @@
   "dependencies": {
     "@citation-js/plugin-bibtex": "^0.7.2",
     "@glennsl/bs-json": "^5.0.4",
-    "@prisma/client": "5.1.1",
     "@rescript/core": "*",
     "citation-js": "^0.7.4",
     "express": "^4.18.2",
-    "html-react-parser": "^5.0.10",
     "marked": "^11.1.0",
     "process": "^0.11.10",
     "react": "^18.2.0",
