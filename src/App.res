@@ -6,7 +6,7 @@ external addEventListener: (string, ReactEvent.Mouse.t => unit) => unit = "addEv
 external removeEventListener: (string, ReactEvent.Mouse.t => unit) => unit = "removeEventListener"
 @send external contains: (Dom.element, Dom.element) => bool = "contains"
 @get external target: ReactEvent.Mouse.t => Dom.element = "target"
-@module external background: string = "/static/portrait.png"
+@module external background: string = "/static/portrait.jpg"
 
 @react.component
 let make = (): React.element => {
