@@ -74,7 +74,7 @@ let make = (): React.element => {
                 <p className="block"> {"Ethan A. Brooks"->React.string} </p>
                 <p className="block text-gray-700"> {"Researcher"->React.string} </p>
                 <p className="block text-gray-700"> {"Reinforcement Learning"->React.string} </p>
-                <p className="block text-gray-700"> {"Natural Language"->React.string} </p>
+                <p className="block text-gray-700"> {"Foundation Models"->React.string} </p>
               </h1>
             | Invalid => <Header inputRef> {"Page not found."->React.string} </Header>
             | About => <Header inputRef> {`About Ethan`->React.string} </Header>
