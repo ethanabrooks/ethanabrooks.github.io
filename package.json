@@ -24,7 +24,8 @@
     "parcel": "parcel index.html",
     "clean": "rescript clean && rm -rf dist && rm -rf node_modules",
     "serve": "http-server dist -p 8080",
-    "build": "yarn rescript && yarn tailwind && yarn parcel-build"
+    "build": "yarn rescript && yarn tailwind && yarn parcel-build",
+    "postinstall": "patch-package"
   },
   "author": "Ethan Brooks",
   "license": "MIT",
