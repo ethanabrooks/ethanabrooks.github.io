@@ -87,7 +87,7 @@ let make = (): React.element => {
               switch route {
               | Home => <> </>
               | About => <About inputRef />
-              | Publications => <Publications inputRef />
+              // | Publications => <Publications inputRef />
               | Projects => <Projects inputRef />
               | WorkExperience => <Work inputRef />
               | Education => <Education inputRef />
